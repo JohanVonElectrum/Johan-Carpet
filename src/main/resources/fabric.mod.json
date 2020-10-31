@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "fractal-carpet-addon",
+  "version": "${version}",
+
+  "name": "Fractal Carpet Addon",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+  "icon": "assets/fractal-carpet-addon/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "fractalcarpetaddon.fractalcarpetaddon.client.FractalCarpetAddonClient"
+    ],
+    "main": [
+      "fractalcarpetaddon.fractalcarpetaddon.FractalCarpetAddon"
+    ]
+  },
+
+          "mixins": [
+        "fractal-carpet-addon.mixins.json"
+      ],
+    
+  "depends": {
+    "fabricloader": ">=0.10.6+build.214",
+              "fabric": "*",
+          "minecraft": "1.16.3"
+  }
+}
