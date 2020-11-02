@@ -10,4 +10,10 @@ public class FractalSimpleSettings {
             category = {FractalSettingCategory, FEATURE}
     )
     public static boolean endGatewayCooldown = true;
+
+    @Rule(
+            desc = "Toggle for the main end island structure generation, turns off portal, egg, obsidian pillars, gateways and crystals",
+            category = {FractalSettingCategory, FEATURE}
+    )
+    public static boolean endMainIslandStructureGen = true;
 }

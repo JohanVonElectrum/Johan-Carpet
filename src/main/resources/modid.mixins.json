@@ -4,6 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "EndGateway_noCooldownMixin",
+    "EndSpikeFeature_generationMixin",
+    "FightManager_structureGeneration",
     "MinecraftServer_noopMixin"
   ],
   "client": [
