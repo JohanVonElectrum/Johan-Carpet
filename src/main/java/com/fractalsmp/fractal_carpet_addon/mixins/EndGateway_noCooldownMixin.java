@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EndGatewayBlockEntity.class)
-public class EndGateway_noCooldownMixin extends EndPortalBlockEntity {
+public abstract class EndGateway_noCooldownMixin extends EndPortalBlockEntity {
     @Inject(method="needsCooldownBeforeTeleporting", at=@At("RETURN"), cancellable = true)
     private void suppressCooldown(CallbackInfoReturnable<Boolean> cir) {
         if (!FractalSimpleSettings.endGatewayCooldown) {
