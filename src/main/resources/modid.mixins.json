@@ -6,7 +6,8 @@
     "EndGateway_noCooldownMixin",
     "EndSpikeFeature_generationMixin",
     "FightManager_structureGeneration",
-    "MinecraftServer_noopMixin"
+    "MinecraftServer_noopMixin",
+    "ServerPlayerEntity_noObsidianPlatform"
   ],
   "client": [
   ],
