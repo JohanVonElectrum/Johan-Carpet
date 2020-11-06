@@ -4,7 +4,7 @@
   "version": "1.0-SNAPSHOT",
 
   "name": "Fabric Carpet Addon",
-  "description": "A carpet extension made for [FractalSMP](fractalsmp.com) using MC 1.15.",
+  "description": "A carpet extension made for FractalSMP using MC 1.15.",
   "authors": [
     "FracturedCode"
   ],
