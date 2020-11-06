@@ -4,7 +4,7 @@
   "version": "1.0-SNAPSHOT",
 
   "name": "Fabric Carpet Addon",
-  "description": "",
+  "description": "A carpet extension made for FractalSMP using MC 1.15.",
   "authors": [
     "FracturedCode"
   ],
@@ -14,7 +14,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/fractal_carpet_addon/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -22,7 +22,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "fractal_carpet_addon.mixins.json"
   ],
 
   "depends": {
