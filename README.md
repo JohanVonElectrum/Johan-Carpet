@@ -1,5 +1,5 @@
 # FractalCarpetAddon
-A carpet extension made for [FractalSMP](fractalsmp.com) using MC 1.15.
+A carpet extension made for [FractalSMP](https://fractalsmp.com) using MC 1.15.
 There is a 1.16 branch that will be merged to master once Fractal moves to 1.16.
 ## Current Features
 - no obsidian platform generation rule
