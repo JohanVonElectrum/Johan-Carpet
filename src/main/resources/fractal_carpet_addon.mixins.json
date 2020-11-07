@@ -3,7 +3,11 @@
   "package": "com.fractalsmp.fractal_carpet_addon.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EndGateway_noCooldownMixin"
+    "EndGateway_noCooldownMixin",
+    "EndSpikeFeature_generationMixin",
+    "FightManager_structureGeneration",
+    "MinecraftServer_noopMixin",
+    "ServerPlayerEntity_noObsidianPlatform"
   ],
   "client": [
   ],
