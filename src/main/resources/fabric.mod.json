@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "fractal-carpet-addon",
-  "version": "1.0-SNAPSHOT",
+  "id": "aleph-carpet",
+  "version": "1.0",
 
-  "name": "Fabric Carpet Addon",
-  "description": "A carpet extension made for FractalSMP using MC 1.15.",
+  "name": "aleph-carpet",
+  "description": "A carpet extension made for AlephSMP in 1.16",
   "authors": [
     "FracturedCode"
   ],
   "contact": {
     "homepage": "https://TODO",
-    "sources": "https://github.com/FracturedCode/FractalCarpetAddon"
+    "sources": "https://github.com/FractalSMP/aleph-carpet"
   },
 
   "license": "MIT",
-  "icon": "assets/fractal_carpet_addon/icon.png",
+  "icon": "assets/aleph_carpet/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -22,12 +22,12 @@
     ]
   },
   "mixins": [
-    "fractal_carpet_addon.mixins.json"
+    "aleph_carpet.mixins.json"
   ],
 
   "depends": {
-    "minecraft": "1.15.x",
-    "fabricloader": ">=0.4.0",
+    "minecraft": "1.16.x",
+    "fabricloader": ">=0.10.0",
     "carpet": "*"
   }
 }

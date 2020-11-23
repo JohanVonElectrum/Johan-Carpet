@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "net.alephsmp.aleph_carpet.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "noCooldown.EndGatewayMixin",
+    "noCooldown.EndGatewayBlockEntityMixin",
+    "endMainIslandStructureGen.EndSpikeFeatureMixin",
+    "endMainIslandStructureGen.FightManagerMixin",
+    "noop.MinecraftClientMixin",
+    "noop.MinecraftServerMixin",
+    "noObsidianPlatform.ServerWorldMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
