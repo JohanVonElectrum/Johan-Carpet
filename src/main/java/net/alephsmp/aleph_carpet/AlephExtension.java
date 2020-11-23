@@ -1,18 +1,18 @@
-package com.fractalsmp.fractal_carpet_addon;
+package net.alephsmp.aleph_carpet;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 
-public class FractalExtension implements CarpetExtension {
+public class AlephExtension implements CarpetExtension {
     public static void noop() {}
 
     static {
-        FractalExtension extension = new FractalExtension();
+        AlephExtension extension = new AlephExtension();
         CarpetServer.manageExtension(extension);
         extension.onGameStarted();
     }
     @Override
     public void onGameStarted() {
-        CarpetServer.settingsManager.parseSettingsClass(FractalSimpleSettings.class);
+        CarpetServer.settingsManager.parseSettingsClass(AlephSimpleSettings.class);
     }
 }

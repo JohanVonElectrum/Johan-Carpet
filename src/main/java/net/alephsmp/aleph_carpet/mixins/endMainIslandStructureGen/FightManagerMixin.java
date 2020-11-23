@@ -1,25 +1,20 @@
-package com.fractalsmp.fractal_carpet_addon.mixins;
+package net.alephsmp.aleph_carpet.mixins.endMainIslandStructureGen;
 
-import com.fractalsmp.fractal_carpet_addon.FractalSimpleSettings;
+import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.boss.dragon.EnderDragonFight;
 import net.minecraft.entity.boss.dragon.EnderDragonSpawnState;
-import net.minecraft.entity.decoration.EnderCrystalEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
 
 import static net.minecraft.entity.boss.dragon.EnderDragonSpawnState.SUMMONING_DRAGON;
 
 @Mixin(EnderDragonFight.class)
-public abstract class FightManager_structureGeneration {
+public abstract class FightManagerMixin {
 
     @Shadow private EnderDragonSpawnState dragonSpawnState;
     @Shadow private ServerBossBar bossBar;
@@ -27,17 +22,9 @@ public abstract class FightManager_structureGeneration {
 
     private EnderDragonSpawnState tempDragonSpawnState;
 
-
-    /*@Redirect(method="tick", at=@At(value = "INVOKE", target = "Lnet/minecraft/entity/boss/dragon/EnderDragonSpawnState;run(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/boss/dragon/EnderDragonFight;Ljava/util/List;ILnet/minecraft/util/math/BlockPos;)V"))
-    public void decideIfRun(EnderDragonSpawnState enderDragonSpawnState, ServerWorld world, EnderDragonFight fight, List<EnderCrystalEntity> crystals, int i, BlockPos blockPos) {
-        if (FractalSimpleSettings.endMainIslandStructureGen) {
-            //this.dragonSpawnState.run(world, fight, crystals, i, blockPos);
-        }
-    }*/
-
     @Inject(method="tick", at=@At("HEAD"))
     public void suppressTowerExplosionAndBlockDeletion(CallbackInfo ci) {
-        if (!FractalSimpleSettings.endMainIslandStructureGen
+        if (!AlephSimpleSettings.endMainIslandStructureGen
             && !this.bossBar.getPlayers().isEmpty()
             && this.dragonSpawnState != null
             && this.dragonSpawnState == EnderDragonSpawnState.SUMMONING_PILLARS) {
@@ -57,7 +44,7 @@ public abstract class FightManager_structureGeneration {
     }
 
     private void cancelIfFeatureFalse(CallbackInfo ci) {
-        if (!FractalSimpleSettings.endMainIslandStructureGen) {
+        if (!AlephSimpleSettings.endMainIslandStructureGen) {
             ci.cancel();
         }
     }
