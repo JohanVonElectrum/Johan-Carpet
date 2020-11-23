@@ -1,12 +1,12 @@
 # FractalCarpetAddon
-A carpet extension made for [FractalSMP](fractalsmp.com) using MC 1.15.
+A carpet extension made for [FractalSMP](https://fractalsmp.com) using MC 1.15.
 There is a 1.16 branch that will be merged to master once Fractal moves to 1.16.
 ## Current Features
-N/A
+- no obsidian platform generation rule
+- no end spikes, portal, crystal, egg or gateway generation rule
+- no end gateway cooldown rule
 ## Features in Development
-no obsidian platform generation rule
-no end spikes, portal, crystal, egg or gateway generation rule
-no end gateway cooldown rule
+N/A
 ## 1.16 Roadmap
 -   NoGatewayCoolDown
 -   NoRegenationObsidianPlatform with entities
