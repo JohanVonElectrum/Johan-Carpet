@@ -12,6 +12,9 @@ This is a fork of FractalCarpetAddon. When Aleph changed from 1.15 to 1.16 it al
 -   ✓ NoGatewayCoolDown
 -   ✓ NoRegenationObsidianPlatform with entities
 -   KeepEnderpearlsTickedInUnloadedChunks // I have the feature code for 1.16 we only need to implement it in FractalCarpet [](https://github.com/whoImT/carpet-addons)[https://github.com/whoImT/carpet-addons](https://github.com/whoImT/carpet-addons)
--   CarefulBreak // I have the feature code for 1.16 we only need to implement it in FractalCarpet
+-   CarefulBreak // I have the feature code for 1.16 we only need to implement it in AlephCarpet
 -   ✓ /cs // AUTOLOAD THIS MOTHERFUCKER IT'S SCARPET BITCHES YEEHAW
 -   StackeableShulkerBoxesInInventories // But not when shulkers get into a hopper from a chest or dispensers or droppers
+-   MultiThreading
+-   Passive Farms Fix
+-   KeepEnderpearls traveling without loading chunks and teleport player when lands
