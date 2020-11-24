@@ -23,4 +23,10 @@ public class AlephSimpleSettings {
             category = {AlephSettingsCategory, FEATURE, EndSettingsCategory}
     )
     public static boolean noObsidianPlatform = false;
+
+    @Rule(
+            desc = "Toggle for projectiles are ticked the whole time",
+            category = {AlephSettingsCategory, FEATURE}
+    )
+    public static boolean keepProjectilesTicked = false;
 }

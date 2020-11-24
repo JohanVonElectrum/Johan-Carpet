@@ -9,7 +9,8 @@
     "endMainIslandStructureGen.FightManagerMixin",
     "noop.MinecraftClientMixin",
     "noop.MinecraftServerMixin",
-    "noObsidianPlatform.ServerWorldMixin"
+    "noObsidianPlatform.ServerWorldMixin",
+    "keepProjectilesTicked.ServerChunkManagerMixin"
   ],
   "client": [
   ],
