@@ -27,6 +27,12 @@ Keep projectiles ticked in unloaded chunks.
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `aleph-addon`, `feature`
+### llamaDupeExploit
+Enables old donkey / llmama dupe bug.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`
 ## Features in Development
 - Experimental ender pearl ticking for cannons
 ## 1.16 Roadmap

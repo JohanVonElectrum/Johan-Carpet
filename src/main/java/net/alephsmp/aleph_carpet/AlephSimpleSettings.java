@@ -2,10 +2,17 @@ package net.alephsmp.aleph_carpet;
 
 import carpet.settings.Rule;
 import static carpet.settings.RuleCategory.FEATURE;
+import static carpet.settings.RuleCategory.SURVIVAL;
 
 public class AlephSimpleSettings {
     public static final String AlephSettingsCategory = "aleph-addon";
     public static final String EndSettingsCategory = "aleph-end-features";
+    @Rule(
+            desc = "Enables old donkey / llmama dupe bug.",
+            category = {SURVIVAL,FEATURE, AlephSettingsCategory}
+    )
+    public static boolean llamaDupeExploit = false;
+
     @Rule(
             desc = "Toggle for end gateway cooldown",
             category = {AlephSettingsCategory, FEATURE, EndSettingsCategory}
