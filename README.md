@@ -26,9 +26,12 @@ Keep projectiles ticked in unloaded chunks.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `aleph-addon`, `feature` 
+* Categories: `aleph-addon`, `feature`
 ## Features in Development
-- Experimental ender pearl ticking for cannons 
+- Experimental ender pearl ticking for cannons
 ## 1.16 Roadmap
 -   CarefulBreak // I have the feature code for 1.16 we only need to implement it in FractalCarpet
 -   StackeableShulkerBoxesInInventories // But not when shulkers get into a hopper from a chest or dispensers or droppers
+-   MultiThreading entities by dimension
+-   Passive Farms Fix
+-   KeepEnderpearls traveling without loading chunks and teleport player when lands
