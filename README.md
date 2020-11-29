@@ -3,18 +3,41 @@ A carpet extension made for AlephSMP in Minecraft 1.16
 
 This is a fork of FractalCarpetAddon. When Aleph changed from 1.15 to 1.16 it also underwent a name change from FractalSMP. This was the perfect opportunity to justify a repository move to the organization page to go along with the version update and name change.
 ## Current Features
-- no obsidian platform generation rule
-- no end spikes, portal, crystal, egg or gateway generation rule
-- no end gateway cooldown rule
+### endMainIslandStructureGen
+no end spikes, portal, crystal, egg or gateway generation when false
+* Type: `boolean`
+* Default value: `true`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`, `aleph-end-features`
+### endGatewayCooldown
+no end gateway cooldown rule
+* Type: `boolean`
+* Default value: `true`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`, `aleph-end-features`
+### keepProjectilesTicked
+Keep projectiles ticked in unloaded chunks.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`
+### llamaDupeExploit
+Enables old donkey / llmama dupe bug.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`
+### noObsidianPlatform
+entities do not generate the obsidian platform in the end, except players
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `feature`, `aleph-end-features`
 ## Features in Development
-- Experimental ender pearl ticking for cannons 
+- Experimental ender pearl ticking for cannons
 ## 1.16 Roadmap
--   ✓ NoGatewayCoolDown
--   ✓ NoRegenationObsidianPlatform with entities
--   KeepEnderpearlsTickedInUnloadedChunks // I have the feature code for 1.16 we only need to implement it in FractalCarpet [](https://github.com/whoImT/carpet-addons)[https://github.com/whoImT/carpet-addons](https://github.com/whoImT/carpet-addons)
--   CarefulBreak // I have the feature code for 1.16 we only need to implement it in AlephCarpet
--   ✓ /cs // AUTOLOAD THIS MOTHERFUCKER IT'S SCARPET BITCHES YEEHAW
+-   CarefulBreak // I have the feature code for 1.16 we only need to implement it in FractalCarpet
 -   StackeableShulkerBoxesInInventories // But not when shulkers get into a hopper from a chest or dispensers or droppers
--   MultiThreading
+-   MultiThreading entities by dimension
 -   Passive Farms Fix
 -   KeepEnderpearls traveling without loading chunks and teleport player when lands
