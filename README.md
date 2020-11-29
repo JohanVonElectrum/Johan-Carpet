@@ -1,7 +1,7 @@
 # aleph-carpet
 A carpet extension made for AlephSMP in Minecraft 1.16
 
-This is a fork of FractalCarpetAddon. When Aleph changed from 1.15 to 1.16 it also underwent a name change from FractalSMP. This was the perfect opportunity to justify a repository move to the organization page to go along with the version update and name change.
+This is a fork of FractalCarpetAddon.
 ## Current Features
 ### endMainIslandStructureGen
 no end spikes, portal, crystal, egg or gateway generation when false
