@@ -33,6 +33,12 @@ entities do not generate the obsidian platform in the end, except players
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `aleph-addon`, `feature`, `aleph-end-features`
+### forceShulkerTeleport
+Force shulkers to teleport when stay in invalid positions
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `survival`, `feature`, `aleph-end-features`
 ## Features in Development
 - Experimental ender pearl ticking for cannons
 ## 1.16 Roadmap

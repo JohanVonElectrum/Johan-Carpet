@@ -11,7 +11,8 @@
     "noObsidianPlatform.ServerWorldMixin",
     "noop.MinecraftClientMixin",
     "noop.MinecraftServerMixin",
-    "keepProjectilesTicked.ServerChunkManagerMixin"
+    "keepProjectilesTicked.ServerChunkManagerMixin",
+    "shulkersForceTeleport.ShulkerEntityMixin"
   ],
   "client": [
   ],

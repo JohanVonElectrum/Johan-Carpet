@@ -36,4 +36,10 @@ public class AlephSimpleSettings {
             category = {AlephSettingsCategory, FEATURE}
     )
     public static boolean keepProjectilesTicked = false;
+
+    @Rule(
+            desc = "Force shulkers to teleport when stay in invalid positions",
+            category = {AlephSettingsCategory, SURVIVAL, FEATURE, EndSettingsCategory}
+    )
+    public static boolean forceShulkerTeleport = false;
 }
