@@ -1,4 +1,4 @@
-package net.alephsmp.aleph_carpet.mixins.noCooldown;
+package net.alephsmp.aleph_carpet.mixins;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import net.minecraft.block.entity.EndGatewayBlockEntity;

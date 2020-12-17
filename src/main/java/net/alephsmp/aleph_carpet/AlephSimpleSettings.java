@@ -3,6 +3,7 @@ package net.alephsmp.aleph_carpet;
 import carpet.settings.Rule;
 import static carpet.settings.RuleCategory.FEATURE;
 import static carpet.settings.RuleCategory.SURVIVAL;
+import static carpet.settings.RuleCategory.BUGFIX;
 
 public class AlephSimpleSettings {
     public static final String AlephSettingsCategory = "aleph-addon";
@@ -42,4 +43,10 @@ public class AlephSimpleSettings {
             category = {AlephSettingsCategory, SURVIVAL, FEATURE, EndSettingsCategory}
     )
     public static boolean forceShulkerTeleport = false;
+
+    @Rule(
+            desc = "Force shulkers to teleport when stay in invalid positions",
+            category = {AlephSettingsCategory, SURVIVAL, BUGFIX}
+    )
+    public static boolean seaLevelFishes = false;
 }
