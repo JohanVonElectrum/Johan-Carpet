@@ -1,4 +1,4 @@
-package net.alephsmp.aleph_carpet.mixins.endMainIslandStructureGen;
+package net.alephsmp.aleph_carpet.mixins;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import net.minecraft.entity.boss.ServerBossBar;

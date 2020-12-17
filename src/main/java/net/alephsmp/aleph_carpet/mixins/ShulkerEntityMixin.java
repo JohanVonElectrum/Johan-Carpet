@@ -1,4 +1,4 @@
-package net.alephsmp.aleph_carpet.mixins.shulkersForceTeleport;
+package net.alephsmp.aleph_carpet.mixins;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import net.minecraft.block.BlockState;
