@@ -1,7 +1,14 @@
-package net.alephsmp.aleph_carpet.mixins;
+package net.alephsmp.aleph_carpet.mixins.shulkersForceTeleport;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.PistonBlock;
+import net.minecraft.block.PistonHeadBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.ShulkerEntity;
 import net.minecraft.entity.passive.GolemEntity;
@@ -15,7 +22,10 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 @Mixin(ShulkerEntity.class)

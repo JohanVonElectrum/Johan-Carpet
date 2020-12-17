@@ -1,4 +1,4 @@
-package net.alephsmp.aleph_carpet.mixins;
+package net.alephsmp.aleph_carpet.mixins.endMainIslandStructureGen;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import com.mojang.serialization.Codec;

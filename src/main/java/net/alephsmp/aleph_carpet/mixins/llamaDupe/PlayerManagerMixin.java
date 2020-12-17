@@ -1,4 +1,4 @@
-package net.alephsmp.aleph_carpet.mixins;
+package net.alephsmp.aleph_carpet.mixins.llamaDupe;
 
 import net.alephsmp.aleph_carpet.AlephSimpleSettings;
 import net.minecraft.entity.Entity;
