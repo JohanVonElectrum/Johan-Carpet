@@ -1,6 +1,6 @@
 package net.alephsmp.aleph_carpet.mixins;
 
-import net.alephsmp.aleph_carpet.AlephSimpleSettings;
+import net.alephsmp.aleph_carpet.AlephSettings;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.profiler.Profiler;
 import net.minecraft.util.registry.RegistryKey;
@@ -23,7 +23,7 @@ public abstract class ServerWorldMixin extends World {
 
     @Inject(method="createEndSpawnPlatform", at = @At("HEAD"), cancellable = true)
     private static void cancelEndPlatformCreate(ServerWorld world, CallbackInfo ci) {
-        if (AlephSimpleSettings.noObsidianPlatform) {
+        if (AlephSettings.noObsidianPlatform) {
             ci.cancel();
         }
     }

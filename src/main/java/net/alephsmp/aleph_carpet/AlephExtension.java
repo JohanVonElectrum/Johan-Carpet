@@ -2,6 +2,9 @@ package net.alephsmp.aleph_carpet;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import com.mojang.brigadier.CommandDispatcher;
+import net.alephsmp.aleph_carpet.commands.CommandLocation;
+import net.minecraft.server.command.ServerCommandSource;
 
 public class AlephExtension implements CarpetExtension {
     public static void noop() {}
@@ -13,6 +16,11 @@ public class AlephExtension implements CarpetExtension {
     }
     @Override
     public void onGameStarted() {
-        CarpetServer.settingsManager.parseSettingsClass(AlephSimpleSettings.class);
+        CarpetServer.settingsManager.parseSettingsClass(AlephSettings.class);
+    }
+
+    @Override
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        CommandLocation.register(dispatcher);
     }
 }

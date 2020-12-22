@@ -1,6 +1,6 @@
 package net.alephsmp.aleph_carpet.mixins;
 
-import net.alephsmp.aleph_carpet.AlephSimpleSettings;
+import net.alephsmp.aleph_carpet.AlephSettings;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.boss.dragon.EnderDragonFight;
 import net.minecraft.entity.boss.dragon.EnderDragonSpawnState;
@@ -24,7 +24,7 @@ public abstract class FightManagerMixin {
 
     @Inject(method="tick", at=@At("HEAD"))
     public void suppressTowerExplosionAndBlockDeletion(CallbackInfo ci) {
-        if (!AlephSimpleSettings.endMainIslandStructureGen
+        if (!AlephSettings.endMainIslandStructureGen
             && !this.bossBar.getPlayers().isEmpty()
             && this.dragonSpawnState != null
             && this.dragonSpawnState == EnderDragonSpawnState.SUMMONING_PILLARS) {
@@ -44,7 +44,7 @@ public abstract class FightManagerMixin {
     }
 
     private void cancelIfFeatureFalse(CallbackInfo ci) {
-        if (!AlephSimpleSettings.endMainIslandStructureGen) {
+        if (!AlephSettings.endMainIslandStructureGen) {
             ci.cancel();
         }
     }

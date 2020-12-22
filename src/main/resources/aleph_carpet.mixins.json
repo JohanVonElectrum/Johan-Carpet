@@ -12,7 +12,8 @@
     "MinecraftClientMixin",
     "MinecraftServerMixin",
     "ServerChunkManagerMixin",
-    "ShulkerEntityMixin"
+    "ShulkerEntityMixin",
+    "FishEntityMixin"
   ],
   "client": [
   ],

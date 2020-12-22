@@ -1,6 +1,6 @@
 package net.alephsmp.aleph_carpet.mixins;
 
-import net.alephsmp.aleph_carpet.AlephSimpleSettings;
+import net.alephsmp.aleph_carpet.AlephSettings;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
@@ -25,14 +25,14 @@ public abstract class EndSpikeFeatureMixin extends Feature<EndSpikeFeatureConfig
 
     @Inject(method="generate", at = @At("HEAD"), cancellable = true)
     public void suppressGenerate(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, EndSpikeFeatureConfig endSpikeFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
-        if (!AlephSimpleSettings.endMainIslandStructureGen) {
+        if (!AlephSettings.endMainIslandStructureGen) {
             cir.setReturnValue(true);
         }
     }
 
     @Inject(method="generateSpike", at=@At("HEAD"), cancellable = true)
     public void suppressGenerateSpike(ServerWorldAccess world, Random random, EndSpikeFeatureConfig config, EndSpikeFeature.Spike spike, CallbackInfo ci) {
-        if (!AlephSimpleSettings.endMainIslandStructureGen) {
+        if (!AlephSettings.endMainIslandStructureGen) {
             ci.cancel();
         }
     }

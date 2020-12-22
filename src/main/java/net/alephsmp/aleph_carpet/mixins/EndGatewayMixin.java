@@ -1,6 +1,6 @@
 package net.alephsmp.aleph_carpet.mixins;
 
-import net.alephsmp.aleph_carpet.AlephSimpleSettings;
+import net.alephsmp.aleph_carpet.AlephSettings;
 import net.minecraft.block.entity.EndGatewayBlockEntity;
 import net.minecraft.block.entity.EndPortalBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class EndGatewayMixin extends EndPortalBlockEntity {
     @Inject(method="needsCooldownBeforeTeleporting", at=@At("RETURN"), cancellable = true)
     private void suppressCooldown(CallbackInfoReturnable<Boolean> cir) {
-        if (!AlephSimpleSettings.endGatewayCooldown) {
+        if (!AlephSettings.endGatewayCooldown) {
             cir.setReturnValue(false);// Returns target method early
         }
     }
