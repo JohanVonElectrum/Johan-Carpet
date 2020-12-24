@@ -24,6 +24,7 @@
   "mixins": [
     "aleph_carpet.mixins.json"
   ],
+  "accessWidener": "aleph_carpet.accesswidener",
 
   "depends": {
     "minecraft": "1.16.x",
