@@ -8,7 +8,7 @@ public class AlephSettings {
     public static final String AlephSettingsCategory = "aleph-addon";
     public static final String EndSettingsCategory = "aleph-end-features";
     @Rule(
-            desc = "Enables old donkey / llmama dupe bug.",
+            desc = "Enables old donkey / llama dupe bug.",
             category = {SURVIVAL,FEATURE, AlephSettingsCategory}
     )
     public static boolean llamaDupeExploit = false;
@@ -36,6 +36,18 @@ public class AlephSettings {
             category = { AlephSettingsCategory, FEATURE }
     )
     public static boolean keepProjectilesTicked = false;
+
+    @Rule(
+            desc = "Ender Pearls are ticked the whole time",
+            category = { AlephSettingsCategory, FEATURE }
+    )
+    public static boolean keepEnderPearlsTicked = false;
+
+    @Rule(
+            desc = "Ender Pearls are ticked the whole time",
+            category = { AlephSettingsCategory, FEATURE }
+    )
+    public static boolean keepPlayerProjectilesTicked = false;
 
     @Rule(
             desc = "Force shulkers to teleport when stay in invalid positions",
