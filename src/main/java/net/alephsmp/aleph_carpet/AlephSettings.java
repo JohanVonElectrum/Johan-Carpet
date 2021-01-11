@@ -68,12 +68,6 @@ public class AlephSettings {
     public static boolean seaLevelFishes = false;
 
     @Rule(
-            desc = "Block update based chunk loading",
-            category = { AlephSettingsCategory, CREATIVE, FEATURE }
-    )
-    public static boolean loadingUpdates = false;
-
-    @Rule(
             desc = "Enables /location command to know where is a player",
             category = { AlephSettingsCategory, CREATIVE, COMMAND }
     )
