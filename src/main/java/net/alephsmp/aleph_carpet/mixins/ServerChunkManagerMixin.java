@@ -17,11 +17,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class ServerChunkManagerMixin {
     @Inject(method = "shouldTickEntity", at = @At(value = "HEAD"), cancellable =  true)
     private void onShouldTickEntity(Entity entity, CallbackInfoReturnable<Boolean> cir){
-        if (AlephSettings.keepProjectilesTicked && entity instanceof ProjectileEntity)
-            cir.setReturnValue(true);
-        else if(AlephSettings.keepPlayerProjectilesTicked && entity instanceof ProjectileEntity && ((ProjectileEntity) entity).getOwner() instanceof PlayerEntity)
-            cir.setReturnValue(true);
-        else if(AlephSettings.keepEnderPearlsTicked && entity instanceof EnderPearlEntity)
+        if ((AlephSettings.keepProjectilesTicked.equals("all") && entity instanceof ProjectileEntity) ||
+                (AlephSettings.keepProjectilesTicked.equals("player-only") && entity instanceof ProjectileEntity && ((ProjectileEntity) entity).getOwner() instanceof PlayerEntity) ||
+                (AlephSettings.keepProjectilesTicked.equals("enderpearls") && entity instanceof EnderPearlEntity)
+        )
             cir.setReturnValue(true);
     }
 }

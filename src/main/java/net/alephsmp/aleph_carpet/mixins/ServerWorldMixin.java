@@ -23,8 +23,7 @@ public abstract class ServerWorldMixin extends World {
 
     @Inject(method="createEndSpawnPlatform", at = @At("HEAD"), cancellable = true)
     private static void cancelEndPlatformCreate(ServerWorld world, CallbackInfo ci) {
-        if (AlephSettings.noObsidianPlatform) {
+        if (AlephSettings.noObsidianPlatform)
             ci.cancel();
-        }
     }
 }

@@ -13,7 +13,9 @@
     "MinecraftServerMixin",
     "ServerChunkManagerMixin",
     "ShulkerEntityMixin",
-    "FishEntityMixin"
+    "FishEntityMixin",
+    "AbstractFireBlockMixin",
+    "BlockMixin"
   ],
   "client": [
   ],
