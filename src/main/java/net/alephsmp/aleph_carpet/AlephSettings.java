@@ -77,7 +77,7 @@ public class AlephSettings {
     public static boolean seaLevelFishes = false;
 
     @Rule(
-            desc = "Enables /location command to know where is a player",
+            desc = "Enables /enderchest command to open the enderchest of a player",
             category = { AlephSettingsCategory, CREATIVE, COMMAND }
     )
     public static boolean commandEnderchest = false;
