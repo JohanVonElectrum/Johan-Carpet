@@ -51,11 +51,8 @@ public class AlephSettings {
 
         @Override
         public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2) {
-            if (serverCommandSource == null || parsedRule.get().equals(s)) {
-                return null;
-            } else if (Arrays.asList(keepProjectilesTickedOptions).contains(s)) {
+            if ((serverCommandSource == null || parsedRule.get().equals(s)) && Arrays.asList(keepProjectilesTickedOptions).contains(s))
                 keepProjectilesTicked = s;
-            }
             return s;
         }
     }
@@ -111,11 +108,8 @@ public class AlephSettings {
 
         @Override
         public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2) {
-            if (serverCommandSource == null || parsedRule.get().equals(s)) {
-                return null;
-            } else if (Arrays.asList(carefulBreakOptions).contains(s)) {
+            if ((serverCommandSource == null || parsedRule.get().equals(s)) && Arrays.asList(carefulBreakOptions).contains(s))
                 carefulBreak = s;
-            }
             return s;
         }
     }

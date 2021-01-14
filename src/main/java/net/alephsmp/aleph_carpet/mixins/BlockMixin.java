@@ -65,8 +65,8 @@ public abstract class BlockMixin implements ItemConvertible {
     private void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfo ci) {
         if (
                 (AlephSettings.carefulBreak.equals("sneaking") && player.isInSneakingPose()) ||
-                        (AlephSettings.carefulBreak.equals("no-sneaking") && !player.isInSneakingPose()) ||
-                        AlephSettings.carefulBreak.equals("always")
+                (AlephSettings.carefulBreak.equals("no-sneaking") && !player.isInSneakingPose()) ||
+                AlephSettings.carefulBreak.equals("always")
         ) {
             if (Blocks.PISTON_HEAD.equals(state.getBlock())) {
                 Direction direction = state.get(FacingBlock.FACING).getOpposite();
