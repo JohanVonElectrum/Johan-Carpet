@@ -16,7 +16,7 @@ import java.util.Random;
 @Mixin(FishEntity.class)
 public class FishEntityMixin {
 
-    @Inject(method = "canSpawn", at = @At("HEAD"))
+    @Inject(method = "canSpawn", at = @At("HEAD"), cancellable = true)
     private static void canSpawn(EntityType<? extends FishEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
         if (AlephSettings.seaLevelFishes && pos.getY() <= 45 && pos.getY() >= world.getSeaLevel())
             cir.setReturnValue(false);
