@@ -3,7 +3,6 @@ package net.alephsmp.aleph_carpet;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
-import carpet.utils.Messenger;
 import net.minecraft.server.command.ServerCommandSource;
 
 import java.util.Arrays;
@@ -69,6 +68,12 @@ public class AlephSettings {
             category = { AlephSettingsCategory, SURVIVAL, COMMAND }
     )
     public static boolean commandLocation = false;
+
+    @Rule(
+            desc = "Enables /signal command to get a container with comparator value",
+            category = { AlephSettingsCategory, CREATIVE, COMMAND }
+    )
+    public static boolean commandSignal = false;
 
     @Rule(
             desc = "Fishes only can spawn between y:45 and y:63, both excluded",

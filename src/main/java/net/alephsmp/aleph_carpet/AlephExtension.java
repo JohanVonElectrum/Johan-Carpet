@@ -5,6 +5,7 @@ import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
 import net.alephsmp.aleph_carpet.commands.CommandEnderchest;
 import net.alephsmp.aleph_carpet.commands.CommandLocation;
+import net.alephsmp.aleph_carpet.commands.CommandSignal;
 import net.alephsmp.aleph_carpet.commands.CommandTotal;
 import net.minecraft.server.command.ServerCommandSource;
 
@@ -26,5 +27,6 @@ public class AlephExtension implements CarpetExtension {
         CommandLocation.register(dispatcher);
         CommandEnderchest.register(dispatcher);
         CommandTotal.register(dispatcher);
+        CommandSignal.register(dispatcher);
     }
 }
