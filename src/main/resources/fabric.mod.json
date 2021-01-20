@@ -6,11 +6,12 @@
   "name": "aleph-carpet",
   "description": "A carpet extension made for AlephSMP in 1.16",
   "authors": [
-    "FracturedCode"
+    "FracturedCode",
+    "JohanVonElectrum"
   ],
   "contact": {
-    "homepage": "https://TODO",
-    "sources": "https://github.com/FractalSMP/aleph-carpet"
+    "homepage": "https://www.alephsmp.com",
+    "sources": "https://github.com/AlephSMP/Aleph-Carpet"
   },
 
   "license": "MIT",
