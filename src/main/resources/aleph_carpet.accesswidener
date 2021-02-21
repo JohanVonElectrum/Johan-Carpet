@@ -3,3 +3,5 @@ accessWidener v1 named
 accessible method net/minecraft/server/world/ServerChunkManager getChunkHolder (J)Lnet/minecraft/server/world/ChunkHolder;
 accessible method net/minecraft/server/world/ServerChunkManager tick ()Z
 accessible class net/minecraft/util/UserCache$Entry
+accessible field net/minecraft/world/Heightmap blockPredicate Ljava/util/function/Predicate;
+accessible method net/minecraft/world/Heightmap set (III)V

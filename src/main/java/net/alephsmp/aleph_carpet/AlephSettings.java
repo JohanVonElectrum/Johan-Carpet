@@ -119,4 +119,34 @@ public class AlephSettings {
         }
     }
     /* End CarefulBreak stuff */
+
+    /* Begin SpawnMaxY stuff */
+    @Rule(
+            desc = "Set the max value possible for heightmap. USE AT YOUR OWN RISK!",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE, EXPERIMENTAL },
+            strict = false,
+            validate = { SpawnMaxYValidator.class }
+    )
+    public static int maxHeightmap = 255;
+
+    private static class SpawnMaxYValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
+            return integer >= 0 && integer < 256 ? integer : null;
+
+        }
+    }
+    /* End SpawnMaxY stuff */
+
+    @Rule(
+            desc = "Bots don't appear on scoreboards and do not count in the total.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean filterBotsInScores = false;
+
+    @Rule(
+            desc = "The scoreboard total appears on the scoreboard.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean totalScore = false;
 }

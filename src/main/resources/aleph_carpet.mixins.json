@@ -15,7 +15,9 @@
     "ShulkerEntityMixin",
     "FishEntityMixin",
     "AbstractFireBlockMixin",
-    "BlockMixin"
+    "BlockMixin",
+    "HeightmapMixin",
+    "ServerScoreboardMixin"
   ],
   "client": [
   ],

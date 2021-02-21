@@ -5,15 +5,12 @@ import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.alephsmp.aleph_carpet.AlephSettings;
 import net.minecraft.command.argument.ObjectiveArgumentType;
-import net.minecraft.scoreboard.AbstractTeam;
+import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.scoreboard.ScoreboardPlayerScore;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.BaseText;
 import net.minecraft.text.LiteralText;
-import net.minecraft.util.UserCache;
-
-import java.util.List;
 
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
@@ -34,22 +31,25 @@ public class CommandTotal {
     }
 
     private static int execute(ServerCommandSource source, ScoreboardObjective objective) {
-        return execute(source, objective, false);
+        return execute(source, objective, AlephSettings.filterBotsInScores);
     }
 
     private static int execute(ServerCommandSource source, ScoreboardObjective objective, boolean bots) {
-        long i = 0L;
+        BaseText total = new LiteralText("");
+        total.append("[").append(objective.getDisplayName()).append("] Total: " + getTotal(source, objective, bots));
+        source.sendFeedback(total, false);
+
+        return 1;
+    }
+
+    public static int getTotal(ServerCommandSource source, ScoreboardObjective objective, boolean bots) {
+        int i = 0;
         for (ScoreboardPlayerScore score: source.getMinecraftServer().getScoreboard().getAllPlayerScores(objective)) {
             if (!bots && source.getMinecraftServer().getScoreboard().getPlayerTeam(score.getPlayerName()) == null)
                 continue;
             i += score.getScore();
         }
-
-        BaseText total = new LiteralText("");
-        total.append("[").append(objective.getDisplayName()).append("] Total: " + i);
-        source.sendFeedback(total, false);
-
-        return 1;
+        return i;
     }
 
 }
