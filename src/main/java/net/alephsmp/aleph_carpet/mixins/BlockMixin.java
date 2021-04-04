@@ -51,7 +51,7 @@ public abstract class BlockMixin implements ItemConvertible {
                         world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 0.2f, (CarpetServer.rand.nextFloat() - CarpetServer.rand.nextFloat()) * 1.4F + 2.0F);
                         ((PlayerEntity) entity).increaseStat(Stats.PICKED_UP.getOrCreateStat(item), itemAmount);
                     } else {
-                        dropStack(world, pos, itemStack);
+                        Block.dropStack(world, pos, itemStack);
                     }
                 });
                 state.onStacksDropped((ServerWorld)world, pos, stack);
@@ -70,12 +70,12 @@ public abstract class BlockMixin implements ItemConvertible {
         ) {
             if (Blocks.PISTON_HEAD.equals(state.getBlock())) {
                 Direction direction = state.get(FacingBlock.FACING).getOpposite();
-                pos = pos.offset(direction);
-                BlockState blockState = world.getBlockState(pos);
-                Block block = world.getBlockState(pos).getBlock();
+                BlockPos pos2 = pos.offset(direction);
+                BlockState blockState = world.getBlockState(pos2);
+                Block block = world.getBlockState(pos2).getBlock();
                 if (block == Blocks.PISTON || block == Blocks.STICKY_PISTON && blockState.get(PistonBlock.EXTENDED)) {
-                    Block.dropStacks(blockState, world, pos, null, player, player.getMainHandStack());
-                    world.removeBlock(pos, false);
+                    Block.dropStacks(blockState, world, pos2, null, player, player.getMainHandStack());
+                    world.removeBlock(pos2, false);
                 }
             } /*else if (state.getBlock() instanceof BedBlock) {
                 Direction direction = state.get(HorizontalFacingBlock.FACING);

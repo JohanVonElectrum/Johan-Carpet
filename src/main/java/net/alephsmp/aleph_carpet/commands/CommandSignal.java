@@ -1,10 +1,15 @@
 package net.alephsmp.aleph_carpet.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.suggestion.Suggestions;
+import com.mojang.brigadier.suggestion.SuggestionsBuilder;
 import net.alephsmp.aleph_carpet.AlephSettings;
+import net.minecraft.command.CommandSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -15,6 +20,10 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.registry.Registry;
 
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.concurrent.CompletableFuture;
+
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
@@ -24,24 +33,27 @@ public class CommandSignal {
         LiteralArgumentBuilder literalargumentbuilder = literal("signal")
                 .requires((player) -> player.hasPermissionLevel(2) && AlephSettings.commandSignal)
                 .then(argument("value", IntegerArgumentType.integer(1, 959))
-                        .executes(context -> execute(context.getSource(), IntegerArgumentType.getInteger(context, "value")))
+                        .executes(context -> execute(context.getSource(), IntegerArgumentType.getInteger(context, "value"), false))
+                        .then(argument("barrel", BoolArgumentType.bool())
+                                .executes(context -> execute(context.getSource(), IntegerArgumentType.getInteger(context, "value"), BoolArgumentType.getBool(context, "barrel")))
+                        )
                 );
 
         dispatcher.register(literalargumentbuilder);
     }
 
-    private static int execute(ServerCommandSource source, int value) throws CommandSyntaxException {
+    private static int execute(ServerCommandSource source, int value, boolean barrel) throws CommandSyntaxException {
         if (!AlephSettings.commandSignal || source == null)
             return 0;
 
         ItemStack item;
         CompoundTag tags = new CompoundTag();
-        if (value <= 3) {
+        if (value <= 3 && !barrel) {
             item = Items.CAULDRON.getDefaultStack();
             CompoundTag tag = new CompoundTag();
             tag.putString("level", String.valueOf(value));
             tags.put("BlockStateTag", tag);
-        } else if (value <= 8 && value != 7) {
+        } else if (value <= 8 && value != 7 && !barrel) {
             item = Items.COMPOSTER.getDefaultStack();
             CompoundTag tag = new CompoundTag();
             tag.putString("level", String.valueOf(value));

@@ -3,13 +3,11 @@ package net.alephsmp.aleph_carpet;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
-import net.alephsmp.aleph_carpet.commands.CommandEnderchest;
-import net.alephsmp.aleph_carpet.commands.CommandLocation;
-import net.alephsmp.aleph_carpet.commands.CommandSignal;
-import net.alephsmp.aleph_carpet.commands.CommandTotal;
+import net.alephsmp.aleph_carpet.commands.*;
 import net.minecraft.server.command.ServerCommandSource;
 
 public class AlephExtension implements CarpetExtension {
+
     public static void noop() {}
 
     static {
@@ -28,5 +26,6 @@ public class AlephExtension implements CarpetExtension {
         CommandEnderchest.register(dispatcher);
         CommandTotal.register(dispatcher);
         CommandSignal.register(dispatcher);
+        CommandComputation.register(dispatcher);
     }
 }

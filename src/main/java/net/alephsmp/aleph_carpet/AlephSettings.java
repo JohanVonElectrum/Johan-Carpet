@@ -149,4 +149,17 @@ public class AlephSettings {
             category = { AlephSettingsCategory, SURVIVAL, FEATURE }
     )
     public static boolean totalScore = false;
+
+    @Rule(
+            desc = "Enables /contraption command to test redstone contraptions.",
+            category = { AlephSettingsCategory, CREATIVE, COMMAND }
+    )
+    public static boolean commandComputation = false;
+
+    @Rule(
+            desc = "Debug TNT momentum transfer to enderpearls in console.",
+            category = { AlephSettingsCategory, CREATIVE, COMMAND }
+    )
+    public static boolean logTNTMomentum = false;
+
 }

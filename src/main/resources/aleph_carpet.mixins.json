@@ -17,7 +17,8 @@
     "AbstractFireBlockMixin",
     "BlockMixin",
     "HeightmapMixin",
-    "ServerScoreboardMixin"
+    "ServerScoreboardMixin",
+    "ExplosionMixin"
   ],
   "client": [
   ],
