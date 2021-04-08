@@ -17,7 +17,7 @@ public class CommandEnderchest {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder literalargumentbuilder = literal("enderchest")
-                .requires((player) -> AlephSettings.commandEnderchest && player.hasPermissionLevel(4))
+                .requires((player) -> AlephSettings.commandEnderchest && player.hasPermissionLevel(3))
                 .then(argument("player", EntityArgumentType.player())
                         .executes(context -> open(context.getSource(), EntityArgumentType.getPlayer(context, "player")))
                 );

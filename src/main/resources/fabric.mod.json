@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "aleph-carpet",
-  "version": "1.0",
+  "version": "2021.4.8",
 
   "name": "aleph-carpet",
-  "description": "A carpet extension made for AlephSMP in 1.16",
+  "description": "A carpet extension made for AlephSMP in 1.16.4",
   "authors": [
     "FracturedCode",
     "JohanVonElectrum"
@@ -31,5 +31,10 @@
     "minecraft": "1.16.x",
     "fabricloader": ">=0.10.0",
     "carpet": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "carpet"
+    }
   }
 }
