@@ -34,6 +34,7 @@ public class AlephExtension implements CarpetExtension {
         CommandTotal.register(dispatcher);
         CommandSignal.register(dispatcher);
         CommandComputation.register(dispatcher);
+        CommandBatch.register(dispatcher);
     }
 
     private static Instant lastUpdateCheck = Instant.MIN;

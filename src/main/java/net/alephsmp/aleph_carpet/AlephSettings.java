@@ -65,7 +65,7 @@ public class AlephSettings {
     public static boolean logTNTMomentum = false;
 
     @Rule(
-            desc = "TNT adapted for FTL.",
+            desc = "TNT optimized for large amounts in Cannons.",
             category = { AlephSettingsCategory, SURVIVAL, OPTIMIZATION }
     )
     public static boolean ftlTNT = false;
@@ -103,6 +103,12 @@ public class AlephSettings {
             category = { AlephSettingsCategory, SURVIVAL, COMMAND }
     )
     public static boolean commandComputation = false;
+
+    @Rule(
+            desc = "Enables /batch command to execute commands multiple times.",
+            category = { AlephSettingsCategory, COMMAND }
+    )
+    public static boolean commandBatch = false;
 
     /* ===== End Commands Rules ===== */
 

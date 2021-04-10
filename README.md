@@ -46,7 +46,7 @@ Debug TNT momentum transfer to enderpearls in console.
 * Categories: `aleph-addon`, `creative`
 
 ### ftlTNT
-TNT adapted for FTL.
+TNT optimized for large amounts in Cannons.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
@@ -88,6 +88,13 @@ Enables /computation command to test redstone contraptions.
 * Default value: `false`
 * Required options: `true`, `false`
 * Categories: `aleph-addon`, `survival`, `command`
+
+### commandBatch
+Enables /batch command to execute commands multiple times.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `true`, `false`
+* Categories: `aleph-addon`, `command`
 
 ## Score rules
 
