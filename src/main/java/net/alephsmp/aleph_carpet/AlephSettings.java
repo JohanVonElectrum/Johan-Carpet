@@ -12,34 +12,35 @@ import static carpet.settings.RuleCategory.*;
 public class AlephSettings {
     public static final String AlephSettingsCategory = "aleph-addon";
     public static final String EndSettingsCategory = "aleph-end-features";
-    @Rule(
-            desc = "Enables old donkey / llama dupe bug.",
-            category = {SURVIVAL,FEATURE, AlephSettingsCategory}
-    )
-    public static boolean llamaDupeExploit = false;
+
+    /* ===== Begin TheEnd Rules ===== */
 
     @Rule(
-            desc = "Toggle for end gateway cooldown",
-            category = { AlephSettingsCategory, FEATURE, EndSettingsCategory }
+            desc = "Toggle for end gateway cooldown.",
+            category = { AlephSettingsCategory, EndSettingsCategory, FEATURE }
     )
     public static boolean endGatewayCooldown = true;
 
     @Rule(
-            desc = "Toggle for the main end island structure generation, turns off portal, egg, obsidian pillars, gateways and crystals",
-            category = { AlephSettingsCategory, FEATURE, EndSettingsCategory }
+            desc = "Toggle for the main end island structure generation, turns off portal, egg, obsidian pillars, gateways and crystals.",
+            category = { AlephSettingsCategory, EndSettingsCategory, FEATURE }
     )
     public static boolean endMainIslandStructureGen = true;
 
     @Rule(
-            desc = "Toggle for end obsidian platform generation excluding players",
-            category = { AlephSettingsCategory, FEATURE, EndSettingsCategory }
+            desc = "Toggle for end obsidian platform generation excluding players.",
+            category = { AlephSettingsCategory, EndSettingsCategory, FEATURE }
     )
     public static boolean noObsidianPlatform = false;
+
+    /* ===== End TheEnd Rules ===== */
+
+    /* ===== Begin Cannon Rules ===== */
 
     /* Begin keepProjectilesTicked stuff */
     private static final String[] keepProjectilesTickedOptions = new String[] { "default", "all", "player-only", "enderpearls" };
     @Rule(
-            desc = "Toggle for projectiles are ticked the whole time",
+            desc = "Toggle for projectiles are ticked the whole time.",
             category = { AlephSettingsCategory, FEATURE },
             options = { "default", "all", "player-only", "enderpearls" },
             validate = { keepProjectilesTickedValidator.class }
@@ -58,40 +59,110 @@ public class AlephSettings {
     /* End keepProjectilesTicked stuff */
 
     @Rule(
-            desc = "Force shulkers to teleport when stay in invalid positions",
-            category = { AlephSettingsCategory, SURVIVAL, FEATURE, EndSettingsCategory }
+            desc = "Debug TNT momentum transfer to enderpearls in console.",
+            category = { AlephSettingsCategory, CREATIVE }
     )
-    public static boolean forceShulkerTeleport = false;
+    public static boolean logTNTMomentum = false;
 
     @Rule(
-            desc = "Enables /location command to know where is a player",
+            desc = "TNT adapted for FTL.",
+            category = { AlephSettingsCategory, SURVIVAL, OPTIMIZATION }
+    )
+    public static boolean ftlTNT = false;
+
+    /* ===== End Cannon Rules ===== */
+
+    /* ===== Begin Commands Rules ===== */
+
+    @Rule(
+            desc = "Enables /location command to know where is a player.",
             category = { AlephSettingsCategory, SURVIVAL, COMMAND }
     )
     public static boolean commandLocation = false;
 
     @Rule(
-            desc = "Enables /signal command to get a container with comparator value",
+            desc = "Enables /signal command to get a container with comparator value.",
             category = { AlephSettingsCategory, CREATIVE, COMMAND }
     )
     public static boolean commandSignal = false;
 
     @Rule(
-            desc = "Fishes only can spawn between y:45 and y:63, both excluded",
-            category = { AlephSettingsCategory, SURVIVAL, BUGFIX }
-    )
-    public static boolean seaLevelFishes = false;
-
-    @Rule(
-            desc = "Enables /enderchest command to open the enderchest of a player",
-            category = { AlephSettingsCategory, CREATIVE, COMMAND }
+            desc = "Enables /enderchest command to open the enderchest of a player.",
+            category = { AlephSettingsCategory, FEATURE, COMMAND }
     )
     public static boolean commandEnderchest = false;
 
     @Rule(
-            desc = "Enables /total command to know the total sum of a scoreboard",
-            category = { AlephSettingsCategory, CREATIVE, COMMAND }
+            desc = "Enables /total command to know the total sum of a scoreboard.",
+            category = { AlephSettingsCategory, SURVIVAL, COMMAND }
     )
     public static boolean commandTotal = false;
+
+    @Rule(
+            desc = "Enables /computation command to test redstone contraptions.",
+            category = { AlephSettingsCategory, SURVIVAL, COMMAND }
+    )
+    public static boolean commandComputation = false;
+
+    /* ===== End Commands Rules ===== */
+
+    /* ===== Begin Score Rules ===== */
+
+    @Rule(
+            desc = "Bots don't appear on scoreboards and do not count in the total.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean filterBotsInScores = false;
+
+    @Rule(
+            desc = "The scoreboard total appears on the scoreboard.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean totalScore = false;
+
+    /* ===== End Score Rules ===== */
+
+    /* ===== Begin Entity Rules ===== */
+
+    @Rule(
+            desc = "Force shulkers to teleport when stay in invalid positions.",
+            category = { AlephSettingsCategory, EndSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean forceShulkerTeleport = false;
+
+    @Rule(
+            desc = "Fishes only can spawn between y:45 and y:63, both excluded.",
+            category = { AlephSettingsCategory, SURVIVAL, BUGFIX }
+    )
+    public static boolean seaLevelFishes = false;
+
+    /* Begin SpawnMaxY stuff */
+    @Rule(
+            desc = "Set the max value possible for heightmap. USE AT YOUR OWN RISK!",
+            category = { AlephSettingsCategory, SURVIVAL, EXPERIMENTAL, OPTIMIZATION },
+            strict = false,
+            validate = { SpawnMaxYValidator.class }
+    )
+    public static int maxHeightmap = 255;
+
+    private static class SpawnMaxYValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
+            return integer >= 0 && integer < 256 ? integer : null;
+
+        }
+    }
+    /* End SpawnMaxY stuff */
+
+    @Rule(
+            desc = "Enables old donkey / llama dupe bug.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean llamaDupeExploit = false;
+
+    /* ===== End Entity Rules ===== */
+
+    /* ===== Begin PlayerTweaks Rules =====*/
 
     @Rule(
             desc = "Backports 1.12 flint and steel behavior. Flint and steel can be used for updating observers / buds.",
@@ -120,58 +191,12 @@ public class AlephSettings {
     }
     /* End CarefulBreak stuff */
 
-    /* Begin SpawnMaxY stuff */
-    @Rule(
-            desc = "Set the max value possible for heightmap. USE AT YOUR OWN RISK!",
-            category = { AlephSettingsCategory, SURVIVAL, FEATURE, EXPERIMENTAL },
-            strict = false,
-            validate = { SpawnMaxYValidator.class }
-    )
-    public static int maxHeightmap = 255;
-
-    private static class SpawnMaxYValidator extends Validator<Integer> {
-        @Override
-        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
-            return integer >= 0 && integer < 256 ? integer : null;
-
-        }
-    }
-    /* End SpawnMaxY stuff */
-
-    @Rule(
-            desc = "Bots don't appear on scoreboards and do not count in the total.",
-            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
-    )
-    public static boolean filterBotsInScores = false;
-
-    @Rule(
-            desc = "The scoreboard total appears on the scoreboard.",
-            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
-    )
-    public static boolean totalScore = false;
-
-    @Rule(
-            desc = "Enables /contraption command to test redstone contraptions.",
-            category = { AlephSettingsCategory, CREATIVE, COMMAND }
-    )
-    public static boolean commandComputation = false;
-
-    @Rule(
-            desc = "Debug TNT momentum transfer to enderpearls in console.",
-            category = { AlephSettingsCategory, CREATIVE, COMMAND }
-    )
-    public static boolean logTNTMomentum = false;
-
-    @Rule(
-            desc = "TNT adapted for FTL.",
-            category = { AlephSettingsCategory, SURVIVAL, OPTIMIZATION }
-    )
-    public static boolean ftlTNT = false;
-
     @Rule(
             desc = "Emerald ore acts as an update suppressor.",
             category = { AlephSettingsCategory, CREATIVE }
     )
     public static boolean oreUpdateSuppressor = false;
+
+    /* ===== End PlayerTweaks Rules =====*/
 
 }
