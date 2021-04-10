@@ -162,4 +162,16 @@ public class AlephSettings {
     )
     public static boolean logTNTMomentum = false;
 
+    @Rule(
+            desc = "TNT adapted for FTL.",
+            category = { AlephSettingsCategory, SURVIVAL, OPTIMIZATION }
+    )
+    public static boolean ftlTNT = false;
+
+    @Rule(
+            desc = "Emerald ore acts as an update suppressor.",
+            category = { AlephSettingsCategory, CREATIVE }
+    )
+    public static boolean oreUpdateSuppressor = false;
+
 }

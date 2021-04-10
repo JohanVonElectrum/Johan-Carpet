@@ -18,7 +18,10 @@
     "BlockMixin",
     "HeightmapMixin",
     "ServerScoreboardMixin",
-    "ExplosionMixin"
+    "ExplosionMixin",
+    "ServerPlayerEntityMixin",
+    "TntEntityMixin",
+    "AbstractBlockMixin"
   ],
   "client": [
   ],

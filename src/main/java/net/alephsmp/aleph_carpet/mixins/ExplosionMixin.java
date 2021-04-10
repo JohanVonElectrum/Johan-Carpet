@@ -1,11 +1,13 @@
 package net.alephsmp.aleph_carpet.mixins;
 
+import carpet.fakes.TntEntityInterface;
 import net.alephsmp.aleph_carpet.AlephSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
@@ -60,9 +62,9 @@ public class ExplosionMixin {
     @Final @Shadow
     private Map<PlayerEntity, Vec3d> affectedPlayers;
 
-    @Inject(method = "collectBlocksAndDamageEntities", at = @At("HEAD"))
+    @Inject(method = "collectBlocksAndDamageEntities", at = @At("HEAD"), cancellable = true)
     public void collectBlocksAndDamageEntities(CallbackInfo ci) {
-        if (AlephSettings.logTNTMomentum) {
+        if (AlephSettings.logTNTMomentum || AlephSettings.ftlTNT) {
             float q = this.power * 2.0F;
             int k = MathHelper.floor(this.x - (double) q - 1.0D);
             int l = MathHelper.floor(this.x + (double) q + 1.0D);
@@ -75,8 +77,6 @@ public class ExplosionMixin {
 
             for (int x = 0; x < list.size(); ++x) {
                 Entity entity = list.get(x);
-                if (!(entity instanceof EnderPearlEntity))
-                    continue;
                 if (!entity.isImmuneToExplosion()) {
                     double y = MathHelper.sqrt(entity.squaredDistanceTo(vec3d)) / q;
                     if (y <= 1.0D) {
@@ -93,15 +93,21 @@ public class ExplosionMixin {
 
                             Vec3d vel = entity.getVelocity();
                             Vec3d delta = new Vec3d(z * af, aa * af, ab * af);
-                            Vec3d res = vel.add(delta);
+                            Vec3d res = vel.add(delta.multiply(entity instanceof TntEntity ? ((TntEntityInterface) this.entity).getMergedTNT() : 1));
 
-                            System.out.println(z * ac + ", " + aa * ac + ", " + ab * ac + " | " + ad + " -> " + af);
-                            System.out.println(res.toString() + " = " + vel.toString() + " + " + delta.toString());
+                            if (AlephSettings.ftlTNT)
+                                entity.setVelocity(res);
+
+                            if (AlephSettings.logTNTMomentum) {
+                                System.out.println(z * ac + ", " + aa * ac + ", " + ab * ac + " | " + ad + " -> " + af);
+                                System.out.println(res.toString() + " = " + vel.toString() + " + " + delta.toString());
+                            }
                         }
                     }
                 }
             }
+            if (AlephSettings.ftlTNT && entity instanceof TntEntity && ((TntEntityInterface) entity).getMergedTNT() > 1)
+                ci.cancel();
         }
     }
-
 }

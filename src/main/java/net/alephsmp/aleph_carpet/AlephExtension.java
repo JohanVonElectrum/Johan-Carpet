@@ -4,9 +4,16 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
 import net.alephsmp.aleph_carpet.commands.*;
+import net.alephsmp.aleph_carpet.utils.HttpHelper;
 import net.minecraft.server.command.ServerCommandSource;
 
+import java.time.Instant;
+
 public class AlephExtension implements CarpetExtension {
+
+    public static final String MOD_NAME = "AlephSMP Carpet Addon";
+    public static final String MOD_ID = "aleph-carpet";
+    public static final String VERSION = "2021.4.10";
 
     public static void noop() {}
 
@@ -28,4 +35,14 @@ public class AlephExtension implements CarpetExtension {
         CommandSignal.register(dispatcher);
         CommandComputation.register(dispatcher);
     }
+
+    private static Instant lastUpdateCheck = Instant.MIN;
+    public static boolean shouldUpdate() {
+        Instant now = Instant.now();
+        if (lastUpdateCheck.plusSeconds(3600).isAfter(now))
+            return false;
+        lastUpdateCheck = now;
+        return !AlephExtension.VERSION.equals(HttpHelper.getLatestRelease());
+    }
+
 }

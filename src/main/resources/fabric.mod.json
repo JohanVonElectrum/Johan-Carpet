@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "aleph-carpet",
-  "version": "2021.4.8",
+  "version": "2021.4.10",
 
   "name": "aleph-carpet",
   "description": "A carpet extension made for AlephSMP in 1.16.4",
