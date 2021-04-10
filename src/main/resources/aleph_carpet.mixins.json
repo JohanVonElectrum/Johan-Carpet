@@ -21,7 +21,8 @@
     "ExplosionMixin",
     "ServerPlayerEntityMixin",
     "TntEntityMixin",
-    "AbstractBlockMixin"
+    "AbstractBlockMixin",
+    "ShulkerBoxBlockEntityMixin"
   ],
   "client": [
   ],

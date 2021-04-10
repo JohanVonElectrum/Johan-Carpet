@@ -203,6 +203,12 @@ public class AlephSettings {
     )
     public static boolean oreUpdateSuppressor = false;
 
+    @Rule(
+            desc = "Enable the possibility to store shulkerboxes inside shulkerboxes.",
+            category = { AlephSettingsCategory, SURVIVAL, FEATURE }
+    )
+    public static boolean shulkerInception = false;
+
     /* ===== End PlayerTweaks Rules =====*/
 
 }

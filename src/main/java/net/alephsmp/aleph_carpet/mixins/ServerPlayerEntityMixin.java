@@ -31,7 +31,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Sc
     @Inject(method = "onSpawn", at = @At("HEAD"))
     public void onSpawn(CallbackInfo ci) {
         this.sendMessage(Messenger.s("You are playing with §5" + AlephExtension.MOD_NAME + "§r: §5" + AlephExtension.MOD_ID + "-1.16.4-" + AlephExtension.VERSION), false);
-        if (this.hasPermissionLevel(2) && AlephExtension.shouldUpdate()) {
+        if (this.hasPermissionLevel(3) && AlephExtension.shouldUpdate()) {
             BaseText url = Messenger.s("https://github.com/AlephSMP/Aleph-Carpet/releases/latest");
             ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/AlephSMP/Aleph-Carpet/releases/latest");
             url.setStyle(
