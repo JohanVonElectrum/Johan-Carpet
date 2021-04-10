@@ -22,7 +22,8 @@
     "ServerPlayerEntityMixin",
     "TntEntityMixin",
     "AbstractBlockMixin",
-    "ShulkerBoxBlockEntityMixin"
+    "ShulkerBoxBlockEntityMixin",
+    "ShulkerBoxSlotMixin"
   ],
   "client": [
   ],

@@ -13,7 +13,7 @@ public class AlephExtension implements CarpetExtension {
 
     public static final String MOD_NAME = "AlephSMP Carpet Addon";
     public static final String MOD_ID = "aleph-carpet";
-    public static final String VERSION = "2021.4.10";
+    public static final String VERSION = "2021.4.11";
 
     public static void noop() {}
 
