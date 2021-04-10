@@ -9,21 +9,21 @@ Is currently actively developed by [JohanVonElectrum](https://github.com/JohanVo
 ## TheEnd rules
 
 ### endGatewayCooldown
-no end gateway cooldown rule
+Remove the end gateway cooldown.
 * Type: `boolean`
 * Default value: `true`
 * Required options: `true`, `false`
 * Categories: `aleph-addon`, `feature`, `aleph-end-features`
 
 ### endMainIslandStructureGen
-no end spikes, portal, crystal, egg or gateway generation when false
+No end spikes, portal, crystal, egg or gateway generation when false.
 * Type: `boolean`
 * Default value: `true`
 * Required options: `true`, `false`
 * Categories: `aleph-addon`, `feature`, `aleph-end-features`
 
 ### noObsidianPlatform
-entities do not generate the obsidian platform in the end, except players
+Entities do not generate the obsidian platform in the end, except players.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
