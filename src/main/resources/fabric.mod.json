@@ -3,11 +3,11 @@
   "id": "aleph-carpet",
   "version": "2021.4.11",
 
-  "name": "aleph-carpet",
+  "name": "AlephSMP Carpet Addon",
   "description": "A carpet extension made for AlephSMP in 1.16.4",
   "authors": [
-    "FracturedCode",
-    "JohanVonElectrum"
+    "JohanVonElectrum",
+    "FracturedCode"
   ],
   "contact": {
     "homepage": "https://www.alephsmp.com",

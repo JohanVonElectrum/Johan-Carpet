@@ -1,7 +1,7 @@
 # aleph-carpet
 A carpet extension made for AlephSMP in Minecraft 1.16.4.
 
-This is a fork of FractalCarpetAddon.<br>
+This is a fork of FractalCarpetAddon. This addon is incompatible with [carpet-addons](https://github.com/whoImT/carpet-addons) because this is a fork and have many duplicated rules.<br>
 Is currently actively developed by [JohanVonElectrum](https://github.com/JohanVonElectrum)
 
 #AlephSMP carpet rules
