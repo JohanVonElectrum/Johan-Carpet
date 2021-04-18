@@ -1,21 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "aleph-carpet",
+  "id": "johan-carpet",
   "version": "2021.4.11",
 
-  "name": "AlephSMP Carpet Addon",
-  "description": "A carpet extension made for AlephSMP in 1.16.4",
+  "name": "Johan Carpet Addon",
+  "description": "A carpet extension made for johan in 1.16.4",
   "authors": [
     "JohanVonElectrum",
     "FracturedCode"
   ],
   "contact": {
-    "homepage": "https://www.alephsmp.com",
-    "sources": "https://github.com/AlephSMP/Aleph-Carpet"
+    "sources": "https://github.com/JohanVonElectrum/Johan-Carpet"
   },
 
   "license": "MIT",
-  "icon": "assets/aleph_carpet/icon.png",
+  "icon": "assets/johan_carpet/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -23,9 +22,9 @@
     ]
   },
   "mixins": [
-    "aleph_carpet.mixins.json"
+    "johan_carpet.mixins.json"
   ],
-  "accessWidener": "aleph_carpet.accesswidener",
+  "accessWidener": "johan_carpet.accesswidener",
 
   "depends": {
     "minecraft": "1.16.x",
