@@ -1,7 +1,7 @@
 # johan-carpet
 A carpet extension made by JohanVonElectrum in Minecraft 1.16.4.
 
-This is a fork of FractalCarpetAddon. This addon may be incompatible with [carpet-addons](https://github.com/whoImT/carpet-addons). <br>
+This addon may be incompatible with [carpet-addons](https://github.com/whoImT/carpet-addons). <br>
 Is currently actively developed by [JohanVonElectrum](https://github.com/JohanVonElectrum).
 
 # Johan carpet rules
