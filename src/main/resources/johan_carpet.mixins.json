@@ -1,34 +1,35 @@
 {
-  "required": true,
-  "package": "net.johan.johan_carpet.mixins",
-  "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "AbstractBlockMixin",
-    "AbstractFireBlockMixin",
-    "BlockMixin",
-    "EndGatewayBlockEntityMixin",
-    "EndGatewayMixin",
-    "EndSpikeFeatureMixin",
-    "ExplosionMixin",
-    "FightManagerMixin",
-    "FishEntityMixin",
-    "HeightmapMixin",
-    "MinecraftClientMixin",
-    "MinecraftServerMixin",
-    "PlayerManagerMixin",
-    "ServerChunkManagerMixin",
-    "ServerPlayerEntityMixin",
-    "ServerScoreboardMixin",
-    "ServerWorldMixin",
-    "ShulkerBoxBlockEntityMixin",
-    "ShulkerBoxSlotMixin",
-    "ShulkerEntityMixin",
-    "TntEntityMixin",
-    "HopperBlockEntityMixin"
-  ],
-  "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
+    "required": true,
+    "package": "com.johanvonelectrum.johan_carpet.mixins",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "AbstractBlockMixin",
+        "AbstractFireBlockMixin",
+        "BlockMixin",
+        "EndGatewayBlockEntityMixin",
+        "EndGatewayMixin",
+        "EndSpikeFeatureMixin",
+        "ExplosionMixin",
+        "FightManagerMixin",
+        "FishEntityMixin",
+        "HeightmapMixin",
+        "HopperBlockEntityMixin",
+        "ItemFrameEntityMixin",
+        "MinecraftClientMixin",
+        "MinecraftServerMixin",
+        "PlayerManagerMixin",
+        "ServerChunkManagerMixin",
+        "ServerPlayerEntityMixin",
+        "ServerScoreboardMixin",
+        "ServerWorldMixin",
+        "ShulkerBoxBlockEntityMixin",
+        "ShulkerBoxSlotMixin",
+        "ShulkerEntityMixin",
+        "TntEntityMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
   }
 }
