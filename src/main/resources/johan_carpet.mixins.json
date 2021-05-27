@@ -5,7 +5,9 @@
     "mixins": [
         "AbstractBlockMixin",
         "AbstractFireBlockMixin",
+        "AnvilScreenHandlerMixin",
         "BlockMixin",
+        "EnchantmentHelperMixin",
         "EndGatewayBlockEntityMixin",
         "EndGatewayMixin",
         "EndSpikeFeatureMixin",

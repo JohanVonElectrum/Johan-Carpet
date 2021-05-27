@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(ItemFrameEntity.class)
+@Mixin(value = ItemFrameEntity.class, priority = 900)
 public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     @Shadow
@@ -55,6 +55,7 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
      */
     @Overwrite
     public boolean canStayAttached() {
+        System.out.println("can stay attached");
         ItemFrameEntity itemFrame = (ItemFrameEntity) (Object) this;
 
         BlockState blockState = itemFrame.world.getBlockState(this.attachmentPos.offset(this.facing.getOpposite()));
@@ -73,6 +74,7 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
             return false;
         } else if (!source.isExplosive() && !itemFrame.getHeldItemStack().isEmpty()) {
             if (!this.world.isClient) {
+                System.out.println("damage");
                 this.dropHeldStackDamage(source.getAttacker(), false);
                 this.playSound(SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, 1.0F, 1.0F);
             }
@@ -108,9 +110,10 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
                 if (!itemStack.isEmpty()) {
                     itemStack = itemStack.copy();
-                    if (JohanSettings.itemFrameDelay > 0)
+                    if (JohanSettings.itemFrameDelay > 0) {
                         removed = 1;
-                    else
+                        System.out.println("removed = 1");
+                    } else
                         this.removeFromFrame(itemStack);
                     if (this.random.nextFloat() < itemDropChance) {
                         this.dropStack(itemStack);
@@ -132,9 +135,9 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     @Override
     public void onBreak(@Nullable Entity entity) {
+        System.out.println("break");
         this.playSound(SoundEvents.ENTITY_ITEM_FRAME_BREAK, 1.0F, 1.0F);
         this.dropHeldStack(entity, true);
-        System.out.println(2);
     }
 
     @Override

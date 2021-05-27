@@ -12,6 +12,7 @@ import static carpet.settings.RuleCategory.*;
 public class JohanSettings {
     public static final String johanSettingsCategory = "johan-addon";
     public static final String EndSettingsCategory = "johan-end-features";
+    public static final String CHEAT = "cheats";
 
     /* ===== Begin TheEnd Rules ===== */
 
@@ -41,7 +42,7 @@ public class JohanSettings {
     private static final String[] keepProjectilesTickedOptions = new String[] { "default", "all", "player-only", "enderpearls" };
     @Rule(
             desc = "Toggle for projectiles are ticked the whole time.",
-            category = { johanSettingsCategory, FEATURE },
+            category = { johanSettingsCategory, CHEAT },
             options = { "default", "all", "player-only", "enderpearls" },
             validate = { keepProjectilesTickedValidator.class }
     )
@@ -138,7 +139,7 @@ public class JohanSettings {
 
     @Rule(
             desc = "Force shulkers to teleport when stay in invalid positions.",
-            category = { johanSettingsCategory, EndSettingsCategory, SURVIVAL, FEATURE }
+            category = { johanSettingsCategory, EndSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean forceShulkerTeleport = false;
 
@@ -151,7 +152,7 @@ public class JohanSettings {
     /* Begin SpawnMaxY stuff */
     @Rule(
             desc = "Set the max value possible for heightmap. USE AT YOUR OWN RISK!",
-            category = { johanSettingsCategory, SURVIVAL, EXPERIMENTAL, OPTIMIZATION },
+            category = { johanSettingsCategory, SURVIVAL, EXPERIMENTAL, OPTIMIZATION, CHEAT },
             strict = false,
             validate = { SpawnMaxYValidator.class }
     )
@@ -168,7 +169,7 @@ public class JohanSettings {
 
     @Rule(
             desc = "Enables old donkey / llama dupe bug.",
-            category = { johanSettingsCategory, SURVIVAL, FEATURE }
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean llamaDupeExploit = false;
 
@@ -205,26 +206,33 @@ public class JohanSettings {
 
     @Rule(
             desc = "Emerald ore acts as an update suppressor.",
-            category = { johanSettingsCategory, CREATIVE }
+            category = { johanSettingsCategory, CREATIVE, CHEAT }
     )
     public static boolean oreUpdateSuppressor = false;
 
     @Rule(
             desc = "Enable the possibility to store shulkerboxes inside shulkerboxes.",
-            category = { johanSettingsCategory, SURVIVAL, FEATURE }
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean shulkerInception = false;
 
     @Rule(
-            desc = "Disable light updates.",
-            category = { johanSettingsCategory, CREATIVE }
+            desc = "Disable enchantment compatibility checks.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
-    public static boolean lightSuppressor = false; //TODO: xD de 0 bb
+    public static boolean compatibleEnchantments = false;
 
-    /* Begin SpawnMaxY stuff */
+    @Rule(
+            desc = "Disable anvil max xp cap.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean disableAnvilXpLimit;
+
+    /* Begin itemFrameDelay stuff */
     @Rule(
             desc = "Item frame reset delay.",
             category = { johanSettingsCategory, SURVIVAL, EXPERIMENTAL },
+            options = {"0", "3", "6", "22"},
             strict = false,
             validate = { itemFrameDelayValidator.class }
     )
@@ -234,10 +242,9 @@ public class JohanSettings {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
             return integer >= 0 ? integer : null;
-
         }
     }
-    /* End SpawnMaxY stuff */
+    /* End itemFrameDelay stuff */
 
     /* ===== End PlayerTweaks Rules =====*/
 
