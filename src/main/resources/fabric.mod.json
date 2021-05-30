@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "johan-carpet",
-  "version": "2021.5.26",
+  "version": "${version}",
 
   "name": "Johan Carpet Addon",
   "description": "A carpet extension made by JohanVonElectrum in 1.16.4",

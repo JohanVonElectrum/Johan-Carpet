@@ -2,6 +2,7 @@
 A carpet extension made by JohanVonElectrum in Minecraft 1.16.4.
 
 This addon may be incompatible with [carpet-addons](https://github.com/whoImT/carpet-addons). <br>
+This addon is incompatible with [carpet-extra](https://github.com/whoImT/carpet-addons). Please use this [carpet-extra](https://github.com/JohanVonElectrum/carpet-extra) adapted version instead. <br>
 Is currently actively developed by [JohanVonElectrum](https://github.com/JohanVonElectrum).
 
 # Johan carpet rules
