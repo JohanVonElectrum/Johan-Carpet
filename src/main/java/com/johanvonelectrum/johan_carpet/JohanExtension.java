@@ -13,7 +13,7 @@ public class JohanExtension implements CarpetExtension {
 
     public static final String MOD_NAME = "Johan Carpet Addon";
     public static final String MOD_ID = "johan-carpet";
-    public static final String VERSION = "2021.5.26";
+    public static final String VERSION = "2021.5.31";
 
     public static void noop() {}
 
@@ -38,12 +38,14 @@ public class JohanExtension implements CarpetExtension {
     }
 
     private static Instant lastUpdateCheck = Instant.MIN;
+    private static boolean lastUpdateResult = false;
     public static boolean shouldUpdate() {
         Instant now = Instant.now();
-        if (lastUpdateCheck.plusSeconds(3600).isAfter(now))
-            return false;
+        if (lastUpdateResult || lastUpdateCheck.plusSeconds(3600).isAfter(now))
+            return lastUpdateResult;
         lastUpdateCheck = now;
-        return !JohanExtension.VERSION.equals(HttpHelper.getLatestRelease());
+        lastUpdateResult = !JohanExtension.VERSION.equals(HttpHelper.getLatestRelease());
+        return lastUpdateResult;
     }
 
 }
