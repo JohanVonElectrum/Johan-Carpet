@@ -17,11 +17,9 @@
         "HeightmapMixin",
         "HopperBlockEntityMixin",
         "ItemFrameEntityMixin",
-        "MinecraftClientMixin",
         "MinecraftServerMixin",
         "PlayerManagerMixin",
         "ServerChunkManagerMixin",
-        "ServerPlayerEntityMixin",
         "ServerScoreboardMixin",
         "ServerWorldMixin",
         "ShulkerBoxBlockEntityMixin",
@@ -30,6 +28,7 @@
         "TntEntityMixin"
     ],
     "client": [
+        "MinecraftClientMixin"
     ],
     "injectors": {
         "defaultRequire": 1

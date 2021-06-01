@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(TntEntity.class)
+@Mixin(value = TntEntity.class, priority = 800)
 public abstract class TntEntityMixin extends Entity implements TntEntityInterface {
 
     @Shadow public abstract int getFuseTimer();

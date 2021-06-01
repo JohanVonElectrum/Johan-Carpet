@@ -22,7 +22,7 @@ public abstract class PlayerManagerMixin{
         entity.removed = !JohanSettings.llamaDupeExploit;
     }
 
-    @Inject(method = "onPlayerConnect", at = @At("HEAD"))
+    @Inject(method = "onPlayerConnect", at = @At("RETURN"))
     private void onPlayerConnect(ClientConnection connection, ServerPlayerEntity player, CallbackInfo ci) {
         player.sendMessage(Messenger.s("You are playing with §5" + JohanExtension.MOD_NAME + "§r: §5" + JohanExtension.MOD_ID + "-1.16.4-" + JohanExtension.VERSION), false);
         if (player.hasPermissionLevel(3) && JohanExtension.shouldUpdate()) {
