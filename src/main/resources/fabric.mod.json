@@ -6,7 +6,9 @@
   "name": "Johan Carpet Addon",
   "description": "A carpet extension made by JohanVonElectrum in 1.16.4",
   "authors": [
-    "JohanVonElectrum",
+    "JohanVonElectrum"
+  ],
+  "contributors": [
     "FracturedCode"
   ],
   "contact": {

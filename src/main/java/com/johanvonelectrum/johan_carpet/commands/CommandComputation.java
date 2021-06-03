@@ -8,6 +8,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.argument.BlockPosArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
@@ -50,14 +51,14 @@ public class CommandComputation {
     }
 
     private static int convert(ServerCommandSource source, int input, int base1, int base2) {
-        source.sendFeedback(Text.of("base" + base1 + ": " + input), false);
-        source.sendFeedback(Text.of("base" + base2 + ": " + Integer.toString(Integer.parseInt(input + "", base1), base2)), false);
+        source.sendFeedback(new LiteralText("base" + base1 + ": " + input), false);
+        source.sendFeedback(new LiteralText("base" + base2 + ": " + Integer.toString(Integer.parseInt(input + "", base1), base2)), false);
 
         return 1;
     }
 
     private static int ftl(ServerCommandSource source, BlockPos position, BlockPos target) {
-        source.sendFeedback(Text.of("Not implemented yet!"), false);
+        source.sendFeedback(new LiteralText("Not implemented yet!"), false);
 
 //        BlockPos delta = target.subtract(target);
 //

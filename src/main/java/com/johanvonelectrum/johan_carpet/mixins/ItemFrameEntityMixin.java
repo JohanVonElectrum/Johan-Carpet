@@ -42,11 +42,13 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
     public void tick() {
         super.tick();
         ItemFrameEntity itemFrame = (ItemFrameEntity) (Object) this;
-        if (removed >= JohanSettings.itemFrameDelay) {
-            itemFrame.setHeldItemStack(ItemStack.EMPTY);
-            removed = 0;
-        } else if (removed > 0) {
-            removed++;
+        if (JohanSettings.itemFrameDelay > 0) {
+            if (removed >= JohanSettings.itemFrameDelay) {
+                itemFrame.setHeldItemStack(ItemStack.EMPTY);
+                removed = 0;
+            } else if (removed > 0) {
+                removed++;
+            }
         }
     }
 
