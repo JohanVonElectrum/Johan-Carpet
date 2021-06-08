@@ -228,10 +228,16 @@ public class JohanSettings {
     )
     public static boolean disableAnvilXpLimit;
 
+    @Rule(
+            desc = "Using a bucket renamed to \"sponge\" removes fluids in the area.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean bucketSponge;
+
     /* Begin itemFrameDelay stuff */
     @Rule(
             desc = "Item frame reset delay.",
-            category = { johanSettingsCategory, SURVIVAL, EXPERIMENTAL },
+            category = { johanSettingsCategory, SURVIVAL, EXPERIMENTAL, CHEAT },
             options = {"0", "3", "6", "22"},
             strict = false,
             validate = { itemFrameDelayValidator.class }

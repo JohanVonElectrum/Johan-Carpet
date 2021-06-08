@@ -7,6 +7,7 @@
         "AbstractFireBlockMixin",
         "AnvilScreenHandlerMixin",
         "BlockMixin",
+        "BucketItemMixin",
         "EnchantmentHelperMixin",
         "EndGatewayBlockEntityMixin",
         "EndGatewayMixin",

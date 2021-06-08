@@ -14,21 +14,21 @@ Remove the end gateway cooldown.
 * Type: `boolean`
 * Default value: `true`
 * Required options: `true`, `false`
-* Categories: `johan-addon`, `feature`, `johan-end-features`
+* Categories: `johan-addon`, `johan-end-features`, `feature`
 
 ### endMainIslandStructureGen
 No end spikes, portal, crystal, egg or gateway generation when false.
 * Type: `boolean`
 * Default value: `true`
 * Required options: `true`, `false`
-* Categories: `johan-addon`, `feature`, `johan-end-features`
+* Categories: `johan-addon`, `johan-end-features`, `feature`
 
 ### noObsidianPlatform
 Entities do not generate the obsidian platform in the end, except players.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `johan-addon`, `feature`, `johan-end-features`
+* Categories: `johan-addon`, `johan-end-features`, `feature`
 
 ## Cannon rules
 
@@ -37,7 +37,7 @@ Keep projectiles ticked in unloaded chunks.
 * Type: `string`
 * Default value: `default`
 * Required options: `default`, `all`, `player-only`, `enderpearls`
-* Categories: `johan-addon`, `feature`
+* Categories: `johan-addon`, `feature`, `cheat`
 
 ### logTNTMomentum
 Debug TNT momentum transfer to enderpearls in console.
@@ -120,7 +120,7 @@ Force shulkers to teleport when stay in invalid positions.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `johan-addon`, `johan-end-features`, `survival`, `feature`
+* Categories: `johan-addon`, `johan-end-features`, `survival`, `cheat`
 
 ### seaLevelFishes
 Fishes only can spawn between y:45 and y:63, both excluded.
@@ -134,14 +134,14 @@ Set the max value possible for heightmap. USE AT YOUR OWN RISK!
 * Type: `integer`
 * Default value: `255`
 * Valid options: `0-255`
-* Categories: `johan-addon`, `survival`, `experimental`, `optimization`
+* Categories: `johan-addon`, `survival`, `experimental`, `optimization`, `cheat`
 
 ### llamaDupeExploit
 Enables old donkey / llama dupe bug.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `true`, `false`
-* Categories: `johan-addon`, `survival`, `feature`
+* Categories: `johan-addon`, `survival`, `cheat`
 
 ## PlayerTweaks
 
@@ -164,7 +164,42 @@ Emerald ore acts as an update suppressor.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `false`, `true`
-* Categories: `johan-addon`, `creative`
+* Categories: `johan-addon`, `creative`, `cheat`
+
+### shulkerInception
+Enable the possibility to store shulkerboxes inside shulkerboxes.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
+### compatibleEnchantments
+Disable enchantment compatibility checks.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
+### disableAnvilXpLimit
+Disable anvil max xp cap.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
+### bucketSponge
+Using a bucket renamed to "sponge" removes fluids in the area.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
+### itemFrameDelay
+Item frame reset delay.
+* Type: `int`
+* Default value: `0`
+* Required options: `>=0`
+* Categories: `johan-addon`, `survival`, `experimental`, `cheat`
 
 ## Features in Development
 - Experimental ender pearl ticking for cannons
@@ -173,3 +208,5 @@ Emerald ore acts as an update suppressor.
 -   MultiThreading entities by dimension
 -   Passive Farms Fix
 -   Keep enderpearls traveling without loading chunks and teleport player when lands
+-   More cheats, xD
+-   Renewable resources with new mechanics... 100% vanilla stuff ofc
