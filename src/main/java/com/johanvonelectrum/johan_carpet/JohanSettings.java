@@ -83,7 +83,7 @@ public class JohanSettings {
 
     @Rule(
             desc = "Enables /location command to know where is a player.",
-            category = { johanSettingsCategory, SURVIVAL, COMMAND }
+            category = { johanSettingsCategory, COMMAND }
     )
     public static boolean commandLocation = false;
 
@@ -101,13 +101,13 @@ public class JohanSettings {
 
     @Rule(
             desc = "Enables /total command to know the total sum of a scoreboard.",
-            category = { johanSettingsCategory, SURVIVAL, COMMAND }
+            category = { johanSettingsCategory, COMMAND }
     )
     public static boolean commandTotal = false;
 
     @Rule(
             desc = "Enables /computation command to test redstone contraptions.",
-            category = { johanSettingsCategory, SURVIVAL, COMMAND }
+            category = { johanSettingsCategory, COMMAND }
     )
     public static boolean commandComputation = false;
 
@@ -116,6 +116,12 @@ public class JohanSettings {
             category = { johanSettingsCategory, COMMAND }
     )
     public static boolean commandBatch = false;
+
+    @Rule(
+            desc = "Enables /item command to get item data.",
+            category = { johanSettingsCategory, COMMAND }
+    )
+    public static boolean commandItem = false;
 
     /* ===== End Commands Rules ===== */
 
@@ -227,6 +233,12 @@ public class JohanSettings {
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean disableAnvilXpLimit;
+
+    @Rule(
+            desc = "All items have 64 stack size.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean allStackable;
 
     @Rule(
             desc = "Using a bucket renamed to \"sponge\" removes fluids in the area.",

@@ -13,7 +13,7 @@ public class JohanExtension implements CarpetExtension {
 
     public static final String MOD_NAME = "Johan Carpet Addon";
     public static final String MOD_ID = "johan-carpet";
-    public static final String VERSION = "2021.6.8";
+    public static final String VERSION = "2021.6.28";
 
     public static void noop() {}
 
@@ -35,6 +35,7 @@ public class JohanExtension implements CarpetExtension {
         CommandSignal.register(dispatcher);
         CommandComputation.register(dispatcher);
         CommandBatch.register(dispatcher);
+        CommandItem.register(dispatcher);
     }
 
     private static Instant lastUpdateCheck = Instant.MIN;

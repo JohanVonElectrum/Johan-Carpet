@@ -28,7 +28,7 @@ public class BucketItemMixin {
 
     @Shadow @Final private Fluid fluid;
 
-    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "use", at = @At("INVOKE"), cancellable = true)
     private void use(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         ItemStack itemStack = user.getStackInHand(hand);
         boolean sponge = JohanSettings.bucketSponge &&

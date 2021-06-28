@@ -18,6 +18,8 @@
         "HeightmapMixin",
         "HopperBlockEntityMixin",
         "ItemFrameEntityMixin",
+        "ItemMixin",
+        "ItemsMixin",
         "MinecraftServerMixin",
         "PlayerManagerMixin",
         "ServerChunkManagerMixin",

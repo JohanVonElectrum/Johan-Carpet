@@ -26,6 +26,7 @@ public class HttpHelper {
             exception.printStackTrace();
             response = JohanExtension.VERSION;
         }
+        System.out.println("Latest version: " + response);
         return response;
     }
 
