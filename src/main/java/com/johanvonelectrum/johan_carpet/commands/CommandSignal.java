@@ -22,16 +22,16 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class CommandSignal {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder literalargumentbuilder = literal("signal")
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("signal")
                 .requires((player) -> player.hasPermissionLevel(2) && JohanSettings.commandSignal)
-                .then(argument("value", IntegerArgumentType.integer(1, 959))
+                .then(argument("value", IntegerArgumentType.integer(1, 897))
                         .executes(context -> execute(context.getSource(), IntegerArgumentType.getInteger(context, "value"), false))
                         .then(argument("barrel", BoolArgumentType.bool())
                                 .executes(context -> execute(context.getSource(), IntegerArgumentType.getInteger(context, "value"), BoolArgumentType.getBool(context, "barrel")))
                         )
                 );
 
-        dispatcher.register(literalargumentbuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     private static int execute(ServerCommandSource source, int value, boolean barrel) throws CommandSyntaxException {
@@ -52,18 +52,14 @@ public class CommandSignal {
             tags.put("BlockStateTag", tag);
         } else {
             item = Items.BARREL.getDefaultStack();
-
-            int count = (int) Math.ceil(27 * (value - 1) / 14D);
-            byte slot = 0;
             ListTag itemsTag = new ListTag();
-            while (count > 0) {
+
+            for (int slot = 0, count = (int) Math.ceil(27 * (value - 1) / 14D); count > 0; slot++, count -= 64) {
                 CompoundTag slotTag = new CompoundTag();
-                slotTag.putByte("Slot", slot);
+                slotTag.putByte("Slot", (byte) slot);
                 slotTag.putString("id", Registry.ITEM.getId(Items.WHITE_SHULKER_BOX).toString());
-                slotTag.putByte("Count", (byte) (count > 63 ? 64 : count));
+                slotTag.putByte("Count", (byte) Math.min(64, count));
                 itemsTag.add(slotTag);
-                slot++;
-                count -= 64;
             }
 
             CompoundTag tag = new CompoundTag();

@@ -21,6 +21,7 @@
         "ItemMixin",
         "ItemsMixin",
         "MinecraftServerMixin",
+        "PlayerEntityMixin",
         "PlayerManagerMixin",
         "ServerChunkManagerMixin",
         "ServerScoreboardMixin",

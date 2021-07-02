@@ -16,13 +16,13 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class CommandEnderchest {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder literalargumentbuilder = literal("enderchest")
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("enderchest")
                 .requires((player) -> JohanSettings.commandEnderchest && player.hasPermissionLevel(3))
                 .then(argument("player", EntityArgumentType.player())
                         .executes(context -> open(context.getSource(), EntityArgumentType.getPlayer(context, "player")))
                 );
 
-        dispatcher.register(literalargumentbuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     private static int open(ServerCommandSource source, ServerPlayerEntity player) throws CommandSyntaxException {

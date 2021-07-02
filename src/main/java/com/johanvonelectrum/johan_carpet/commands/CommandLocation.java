@@ -27,13 +27,13 @@ public class CommandLocation {
     };
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder literalargumentbuilder = literal("location")
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("location")
                 .requires((player) -> JohanSettings.commandLocation)
                 .then(argument("player", EntityArgumentType.player())
                         .executes(context -> locate(context.getSource(), EntityArgumentType.getPlayer(context, "player")))
                 );
 
-        dispatcher.register(literalargumentbuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     private static int locate(ServerCommandSource source, ServerPlayerEntity player) {

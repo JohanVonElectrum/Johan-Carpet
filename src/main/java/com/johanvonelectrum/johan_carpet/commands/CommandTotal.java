@@ -17,7 +17,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 public class CommandTotal {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder literalargumentbuilder = literal("total")
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("total")
                 .requires((player) -> JohanSettings.commandTotal)
                 .then(argument("objective", ObjectiveArgumentType.objective())
                         .executes(context -> execute(context.getSource(), ObjectiveArgumentType.getObjective(context, "objective")))
@@ -26,7 +26,7 @@ public class CommandTotal {
                         )
                 );
 
-        dispatcher.register(literalargumentbuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     private static int execute(ServerCommandSource source, ScoreboardObjective objective) {

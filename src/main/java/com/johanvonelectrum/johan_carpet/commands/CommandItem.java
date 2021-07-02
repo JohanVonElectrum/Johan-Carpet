@@ -24,7 +24,7 @@ public class CommandItem {
     public static final Map<Integer, List<Item>> ITEMS = new HashMap<>();
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder literalargumentbuilder = literal("item")
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("item")
                 .requires((player) -> JohanSettings.commandItem)
                 .then(argument("stack_size", IntegerArgumentType.integer(1, 64))
                         .executes(context -> getItemCount(context.getSource(), IntegerArgumentType.getInteger(context, "stack_size"), false))
@@ -33,7 +33,7 @@ public class CommandItem {
                         )
                 );
 
-        dispatcher.register(literalargumentbuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     private static int getItemCount(ServerCommandSource source, int stackSize, boolean list) throws CommandSyntaxException {

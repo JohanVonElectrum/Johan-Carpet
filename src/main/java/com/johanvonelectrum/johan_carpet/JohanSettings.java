@@ -246,6 +246,12 @@ public class JohanSettings {
     )
     public static boolean bucketSponge;
 
+    @Rule(
+            desc = "Sneak to repair items with your stored xp.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean xpBarMending;
+
     /* Begin itemFrameDelay stuff */
     @Rule(
             desc = "Item frame reset delay.",

@@ -201,6 +201,13 @@ Item frame reset delay.
 * Required options: `>=0`
 * Categories: `johan-addon`, `survival`, `experimental`, `cheat`
 
+### allStackable
+All items have 64 stack size.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
 ## Features in Development
 - Experimental ender pearl ticking for cannons
 

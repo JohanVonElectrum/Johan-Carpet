@@ -57,7 +57,6 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
      */
     @Overwrite
     public boolean canStayAttached() {
-        System.out.println("can stay attached");
         ItemFrameEntity itemFrame = (ItemFrameEntity) (Object) this;
 
         BlockState blockState = itemFrame.world.getBlockState(this.attachmentPos.offset(this.facing.getOpposite()));
@@ -76,7 +75,6 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
             return false;
         } else if (!source.isExplosive() && !itemFrame.getHeldItemStack().isEmpty()) {
             if (!this.world.isClient) {
-                System.out.println("damage");
                 this.dropHeldStackDamage(source.getAttacker(), false);
                 this.playSound(SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, 1.0F, 1.0F);
             }
@@ -114,7 +112,6 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
                     itemStack = itemStack.copy();
                     if (JohanSettings.itemFrameDelay > 0) {
                         removed = 1;
-                        System.out.println("removed = 1");
                     } else
                         this.removeFromFrame(itemStack);
                     if (this.random.nextFloat() < itemDropChance) {
@@ -137,7 +134,6 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     @Override
     public void onBreak(@Nullable Entity entity) {
-        System.out.println("break");
         this.playSound(SoundEvents.ENTITY_ITEM_FRAME_BREAK, 1.0F, 1.0F);
         this.dropHeldStack(entity, true);
     }
