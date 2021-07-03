@@ -23,6 +23,7 @@
         "MerchantEntityMixin",
         "MinecraftServerMixin",
         "PlayerEntityMixin",
+        "PlayerInventoryMixin",
         "PlayerManagerMixin",
         "ServerChunkManagerMixin",
         "ServerScoreboardMixin",

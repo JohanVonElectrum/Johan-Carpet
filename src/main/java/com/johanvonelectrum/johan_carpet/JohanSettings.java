@@ -271,6 +271,12 @@ public class JohanSettings {
     )
     public static boolean creativeKill;
 
+    @Rule(
+            desc = "Items are stored directly inside shulkers in inventory when players collect them.",
+            category = { johanSettingsCategory, SURVIVAL, FEATURE, EXPERIMENTAL }
+    )
+    public static boolean shulkerInsert;
+
     /* Begin itemFrameDelay stuff */
     @Rule(
             desc = "Item frame reset delay.",
