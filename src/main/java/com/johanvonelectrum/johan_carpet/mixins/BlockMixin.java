@@ -4,11 +4,14 @@ import carpet.CarpetServer;
 import com.johanvonelectrum.johan_carpet.JohanSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.enums.BedPart;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -68,25 +71,21 @@ public abstract class BlockMixin implements ItemConvertible {
                 (JohanSettings.carefulBreak.equals("no-sneaking") && !player.isInSneakingPose()) ||
                 JohanSettings.carefulBreak.equals("always")
         ) {
-            if (Blocks.PISTON_HEAD.equals(state.getBlock())) {
-                Direction direction = state.get(FacingBlock.FACING).getOpposite();
-                BlockPos pos2 = pos.offset(direction);
-                BlockState blockState = world.getBlockState(pos2);
-                Block block = world.getBlockState(pos2).getBlock();
-                if (block == Blocks.PISTON || block == Blocks.STICKY_PISTON && blockState.get(PistonBlock.EXTENDED)) {
-                    Block.dropStacks(blockState, world, pos2, null, player, player.getMainHandStack());
-                    world.removeBlock(pos2, false);
-                }
-            } /*else if (state.getBlock() instanceof BedBlock) {
-                Direction direction = state.get(HorizontalFacingBlock.FACING);
-                pos = pos.offset(direction);
-                BlockState blockState = world.getBlockState(pos);
-                Block block = world.getBlockState(pos).getBlock();
-                if (block instanceof BedBlock && BedBlock.getBedPart(blockState).equals(BedPart.HEAD)) {
-                    Block.dropStacks(blockState, world, pos, null, player, player.getMainHandStack());
-                    world.removeBlock(pos, false);
-                }
-            }*/
+            if (Blocks.PISTON_HEAD.equals(state.getBlock()))
+                fixMultiBlock(state.get(FacingBlock.FACING).getOpposite(), pos, world, player);
+            else if (state.getBlock() instanceof BedBlock && state.get(BedBlock.PART).equals(BedPart.FOOT))
+                fixMultiBlock(state.get(HorizontalFacingBlock.FACING), pos, world, player);
+            else if ((state.getBlock() instanceof DoorBlock || state.getBlock() instanceof TallPlantBlock) && state.get(DoorBlock.HALF) == DoubleBlockHalf.UPPER)
+                fixMultiBlock(Direction.DOWN, pos, world, player);
+        }
+    }
+
+    private void fixMultiBlock(Direction direction, BlockPos pos, World world, PlayerEntity player) {
+        pos = pos.offset(direction);
+        BlockState blockState = world.getBlockState(pos);
+        if (blockState.getBlock() instanceof DoorBlock) {
+            Block.dropStacks(blockState, world, pos, null, player, player.getMainHandStack());
+            world.removeBlock(pos, false);
         }
     }
 }
