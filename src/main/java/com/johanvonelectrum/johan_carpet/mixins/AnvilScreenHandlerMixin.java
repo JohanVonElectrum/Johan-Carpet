@@ -140,7 +140,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
                             bl3 = true;
                         } else {
                             bl2 = true;
-                            if (u > enchantment.getMaxLevel()) {
+                            if (!JohanSettings.disableEnchantmentCap && u > enchantment.getMaxLevel()) {
                                 u = enchantment.getMaxLevel();
                             }
 

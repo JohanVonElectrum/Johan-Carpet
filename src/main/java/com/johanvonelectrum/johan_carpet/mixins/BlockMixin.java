@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -72,20 +71,24 @@ public abstract class BlockMixin implements ItemConvertible {
                 JohanSettings.carefulBreak.equals("always")
         ) {
             if (Blocks.PISTON_HEAD.equals(state.getBlock()))
-                fixMultiBlock(state.get(FacingBlock.FACING).getOpposite(), pos, world, player);
+                fixMultiBlock(state.get(FacingBlock.FACING).getOpposite(), pos, world, player, PistonBlock.class);
             else if (state.getBlock() instanceof BedBlock && state.get(BedBlock.PART).equals(BedPart.FOOT))
-                fixMultiBlock(state.get(HorizontalFacingBlock.FACING), pos, world, player);
+                fixMultiBlock(state.get(HorizontalFacingBlock.FACING), pos, world, player, BedBlock.class);
             else if ((state.getBlock() instanceof DoorBlock || state.getBlock() instanceof TallPlantBlock) && state.get(DoorBlock.HALF) == DoubleBlockHalf.UPPER)
-                fixMultiBlock(Direction.DOWN, pos, world, player);
+                fixMultiBlock(Direction.DOWN, pos, world, player, DoorBlock.class, TallPlantBlock.class);
         }
     }
 
-    private void fixMultiBlock(Direction direction, BlockPos pos, World world, PlayerEntity player) {
+    @SafeVarargs
+    private final void fixMultiBlock(Direction direction, BlockPos pos, World world, PlayerEntity player, Class<? extends Block>... blockClass) {
         pos = pos.offset(direction);
         BlockState blockState = world.getBlockState(pos);
-        if (blockState.getBlock() instanceof DoorBlock) {
-            Block.dropStacks(blockState, world, pos, null, player, player.getMainHandStack());
-            world.removeBlock(pos, false);
+        for (Class<? extends Block> clazz: blockClass) {
+            if (clazz.isInstance(blockState.getBlock())) {
+                Block.dropStacks(blockState, world, pos, null, player, player.getMainHandStack());
+                world.removeBlock(pos, false);
+                return;
+            }
         }
     }
 }

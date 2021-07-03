@@ -178,14 +178,21 @@ Disable enchantment compatibility checks.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `false`, `true`
-* Categories: `johan-addon`, `survival`, `cheat`
+* Categories: `johan-addon`, `survival`, `cheat`, `enchantment`
+
+### disableEnchantmentCap
+Disable enchantment max level cap.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`, `enchantment`
 
 ### disableAnvilXpLimit
 Disable anvil max xp cap.
 * Type: `boolean`
 * Default value: `false`
 * Required options: `false`, `true`
-* Categories: `johan-addon`, `survival`, `cheat`
+* Categories: `johan-addon`, `survival`, `cheat`, `enchantment`
 
 ### bucketSponge
 Using a bucket renamed to "sponge" removes fluids in the area.
@@ -208,8 +215,19 @@ All items have 64 stack size.
 * Required options: `false`, `true`
 * Categories: `johan-addon`, `survival`, `cheat`
 
-## Features in Development
-- Experimental ender pearl ticking for cannons
+### infiniteTrades
+Makes merchant offers unlimited.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `survival`, `cheat`
+
+### creativeKill
+Insta-kill entities when you are in creative mode.
+* Type: `boolean`
+* Default value: `false`
+* Required options: `false`, `true`
+* Categories: `johan-addon`, `creative`, `feature`
 
 ## Development Roadmap
 -   MultiThreading entities by dimension

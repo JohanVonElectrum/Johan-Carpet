@@ -13,6 +13,7 @@ public class JohanSettings {
     public static final String johanSettingsCategory = "johan-addon";
     public static final String EndSettingsCategory = "johan-end-features";
     public static final String CHEAT = "cheats";
+    public static final String ENCHANTMENT = "enchantment";
 
     /* ===== Begin TheEnd Rules ===== */
 
@@ -224,15 +225,27 @@ public class JohanSettings {
 
     @Rule(
             desc = "Disable enchantment compatibility checks.",
-            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+            category = { johanSettingsCategory, SURVIVAL, CHEAT, ENCHANTMENT }
     )
     public static boolean compatibleEnchantments = false;
 
     @Rule(
+            desc = "Disable enchantment max level cap.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT, ENCHANTMENT }
+    )
+    public static boolean disableEnchantmentCap;
+
+    @Rule(
             desc = "Disable anvil max xp cap.",
-            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+            category = { johanSettingsCategory, SURVIVAL, CHEAT, ENCHANTMENT }
     )
     public static boolean disableAnvilXpLimit;
+
+    @Rule(
+            desc = "Makes merchant offers unlimited.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean infiniteTrades;
 
     @Rule(
             desc = "All items have 64 stack size.",
@@ -251,6 +264,12 @@ public class JohanSettings {
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean xpBarMending;
+
+    @Rule(
+            desc = "Insta-kill entities when you are in creative mode.",
+            category = { johanSettingsCategory, CREATIVE, FEATURE }
+    )
+    public static boolean creativeKill;
 
     /* Begin itemFrameDelay stuff */
     @Rule(
