@@ -36,6 +36,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
 
     /**
      * @author JohanVonElectrum
+     * @reason AnvilXPCap and compatibility fixed
      */
     @Overwrite
     public void updateResult() {

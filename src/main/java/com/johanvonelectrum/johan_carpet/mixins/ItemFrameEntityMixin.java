@@ -54,6 +54,7 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     /**
      * @author JohanVonElectrum
+     * @reason itemFrameDelay
      */
     @Overwrite
     public boolean canStayAttached() {
@@ -65,6 +66,7 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     /**
      * @author JohanVonElectrum
+     * @reason itemFrameDelay
      */
     @Overwrite
     public boolean damage(DamageSource source, float amount) {

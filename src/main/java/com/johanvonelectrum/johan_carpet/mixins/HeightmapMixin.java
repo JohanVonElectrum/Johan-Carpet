@@ -28,6 +28,7 @@ public abstract class HeightmapMixin {
 
     /**
      * @author JohanVonElectrum
+     * @reason Limit heightmap max y
      */
     @Overwrite
     public static void populateHeightmaps(Chunk chunk, Set<Heightmap.Type> types) {
@@ -73,6 +74,7 @@ public abstract class HeightmapMixin {
 
     /**
      * @author JohanVonElectrum
+     * @reason Limit heightmap max y
      */
     @Overwrite
     public boolean trackUpdate(int x, int y, int z, BlockState state) {

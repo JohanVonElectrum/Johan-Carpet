@@ -15,6 +15,7 @@ public class EnchantmentHelperMixin {
 
     /**
      * @author JohanVonElectrum
+     * @reason Compatible enchants
      */
     @Overwrite
     public static void removeConflicts(List<EnchantmentLevelEntry> possibleEntries, EnchantmentLevelEntry pickedEntry) {
@@ -26,6 +27,7 @@ public class EnchantmentHelperMixin {
 
     /**
      * @author JohanVonElectrum
+     * @reason Compatible enchants
      */
     @Overwrite
     public static boolean isCompatible(Collection<Enchantment> existing, Enchantment candidate) {
