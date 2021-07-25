@@ -15,6 +15,12 @@ public class JohanSettings {
     public static final String CHEAT = "cheats";
     public static final String ENCHANTMENT = "enchantment";
 
+    @Rule(
+            desc = "Only show the version of " + JohanExtension.MOD_NAME + " only when there is an update.",
+            category = { johanSettingsCategory, FEATURE }
+    )
+    public static boolean onlyUpdateWarn = false;
+
     /* ===== Begin TheEnd Rules ===== */
 
     @Rule(
@@ -233,49 +239,49 @@ public class JohanSettings {
             desc = "Disable enchantment max level cap.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT, ENCHANTMENT }
     )
-    public static boolean disableEnchantmentCap;
+    public static boolean disableEnchantmentCap = false;
 
     @Rule(
             desc = "Disable anvil max xp cap.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT, ENCHANTMENT }
     )
-    public static boolean disableAnvilXpLimit;
+    public static boolean disableAnvilXpLimit = false;
 
     @Rule(
             desc = "Makes merchant offers unlimited.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
-    public static boolean infiniteTrades;
+    public static boolean infiniteTrades = false;
 
     @Rule(
             desc = "All items have 64 stack size.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
-    public static boolean allStackable;
+    public static boolean allStackable = false;
 
     @Rule(
             desc = "Using a bucket renamed to \"sponge\" removes fluids in the area.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
-    public static boolean bucketSponge;
+    public static boolean bucketSponge = false;
 
     @Rule(
             desc = "Sneak to repair items with your stored xp.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
-    public static boolean xpBarMending;
+    public static boolean xpBarMending = false;
 
     @Rule(
             desc = "Insta-kill entities when you are in creative mode.",
             category = { johanSettingsCategory, CREATIVE, FEATURE }
     )
-    public static boolean creativeKill;
+    public static boolean creativeKill = false;
 
     @Rule(
             desc = "Items are stored directly inside shulkers in inventory when players collect them.",
             category = { johanSettingsCategory, SURVIVAL, FEATURE, EXPERIMENTAL }
     )
-    public static boolean shulkerInsert;
+    public static boolean shulkerInsert = false;
 
     /* Begin itemFrameDelay stuff */
     @Rule(

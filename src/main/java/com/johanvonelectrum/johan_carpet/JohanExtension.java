@@ -13,7 +13,7 @@ public class JohanExtension implements CarpetExtension {
 
     public static final String MOD_NAME = "Johan Carpet Addon";
     public static final String MOD_ID = "johan-carpet";
-    public static final String VERSION = "2021.6.28";
+    public static final String VERSION = "2021.7.25";
 
     public static void noop() {}
 

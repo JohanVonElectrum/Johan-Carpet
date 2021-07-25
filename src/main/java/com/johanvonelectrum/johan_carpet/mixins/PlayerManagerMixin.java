@@ -24,8 +24,10 @@ public abstract class PlayerManagerMixin{
 
     @Inject(method = "onPlayerConnect", at = @At("RETURN"))
     private void onPlayerConnect(ClientConnection connection, ServerPlayerEntity player, CallbackInfo ci) {
-        player.sendMessage(Messenger.s("You are playing with §5" + JohanExtension.MOD_NAME + "§r: §5" + JohanExtension.MOD_ID + "-1.16.4-" + JohanExtension.VERSION), false);
-        if (player.hasPermissionLevel(3) && JohanExtension.shouldUpdate()) {
+        boolean shouldUpdate = JohanExtension.shouldUpdate();
+        if (!JohanSettings.onlyUpdateWarn || shouldUpdate)
+            player.sendMessage(Messenger.s("You are playing with §5" + JohanExtension.MOD_NAME + "§r: §5" + JohanExtension.MOD_ID + "-1.16.4-" + JohanExtension.VERSION), false);
+        if (player.hasPermissionLevel(3) && shouldUpdate) {
             BaseText url = Messenger.s("https://github.com/JohanVonElectrum/Johan-Carpet/releases/latest");
             ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/JohanVonElectrum/Johan-Carpet/releases/latest");
             url.setStyle(
