@@ -6,14 +6,14 @@ import com.johanvonelectrum.johan_carpet.commands.*;
 import com.johanvonelectrum.johan_carpet.utils.HttpHelper;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.server.command.ServerCommandSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.time.Instant;
 
 public class JohanExtension implements CarpetExtension {
 
-    public static final String MOD_NAME = "Johan Carpet Addon";
-    public static final String MOD_ID = "johan-carpet";
-    public static final String VERSION = "2021.7.25";
+    public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_NAME);
 
     public static void noop() {}
 
@@ -45,7 +45,7 @@ public class JohanExtension implements CarpetExtension {
         if (lastUpdateResult || lastUpdateCheck.plusSeconds(3600).isAfter(now))
             return lastUpdateResult;
         lastUpdateCheck = now;
-        lastUpdateResult = !JohanExtension.VERSION.equals(HttpHelper.getLatestRelease());
+        lastUpdateResult = !Reference.MOD_VERSION.toString().equals(HttpHelper.getLatestRelease());
         return lastUpdateResult;
     }
 

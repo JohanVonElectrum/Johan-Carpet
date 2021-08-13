@@ -1,6 +1,7 @@
 package com.johanvonelectrum.johan_carpet.utils;
 
 import com.johanvonelectrum.johan_carpet.JohanExtension;
+import com.johanvonelectrum.johan_carpet.Reference;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -24,7 +25,7 @@ public class HttpHelper {
             }
         } catch (IOException exception) {
             exception.printStackTrace();
-            response = JohanExtension.VERSION;
+            response = Reference.MOD_VERSION.toString();
         }
         System.out.println("Latest version: " + response);
         return response;
