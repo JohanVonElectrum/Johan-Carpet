@@ -16,7 +16,7 @@ public class JohanSettings {
     public static final String ENCHANTMENT = "enchantment";
 
     @Rule(
-            desc = "Only show the version of " + JohanExtension.MOD_NAME + " only when there is an update.",
+            desc = "Only show the version of Johan Carpet Addon only when there is an update.",
             category = { johanSettingsCategory, FEATURE }
     )
     public static boolean onlyUpdateWarn = false;

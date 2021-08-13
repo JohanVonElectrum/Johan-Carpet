@@ -55,7 +55,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             j = j + itemStack.getRepairCost() + (itemStack3.isEmpty() ? 0 : itemStack3.getRepairCost());
             this.repairItemUsage = 0;
             if (!itemStack3.isEmpty()) {
-                boolean bl = itemStack3.getItem() == Items.ENCHANTED_BOOK && !EnchantedBookItem.getEnchantmentTag(itemStack3).isEmpty();
+                boolean bl = itemStack3.getItem() == Items.ENCHANTED_BOOK && !EnchantedBookItem.getEnchantmentNbt(itemStack3).isEmpty();
                 int o;
                 int p;
                 int q;
@@ -123,7 +123,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
                         int u = (Integer)map2.get(enchantment);
                         u = t == u ? u + 1 : Math.max(u, t);
                         boolean bl4 = enchantment.isAcceptableItem(itemStack);
-                        if (this.player.abilities.creativeMode || itemStack.getItem() == Items.ENCHANTED_BOOK || JohanSettings.compatibleEnchantments) {
+                        if (this.player.getAbilities().creativeMode || itemStack.getItem() == Items.ENCHANTED_BOOK || JohanSettings.compatibleEnchantments) {
                             bl4 = true;
                         }
 
@@ -195,7 +195,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
                 this.levelCost.set(39);
             }
 
-            if (this.levelCost.get() >= 40 && !this.player.abilities.creativeMode && !JohanSettings.disableAnvilXpLimit) {
+            if (this.levelCost.get() >= 40 && !this.player.getAbilities().creativeMode && !JohanSettings.disableAnvilXpLimit) {
                 itemStack2 = ItemStack.EMPTY;
             }
 

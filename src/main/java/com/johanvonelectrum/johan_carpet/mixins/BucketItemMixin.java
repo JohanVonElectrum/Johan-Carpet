@@ -51,7 +51,7 @@ public class BucketItemMixin {
                     BlockState state = world.getBlockState(blockPos);
                     Block block = state.getBlock();
                     if (block instanceof FluidDrainable)
-                        if (((FluidDrainable) block).tryDrainFluid(world, blockPos, state) != Fluids.EMPTY)
+                        if (((FluidDrainable) block).tryDrainFluid(world, blockPos, state) != ItemStack.EMPTY)
                             user.incrementStat(Stats.USED.getOrCreateStat((BucketItem) (Object) this));
                 }
             }

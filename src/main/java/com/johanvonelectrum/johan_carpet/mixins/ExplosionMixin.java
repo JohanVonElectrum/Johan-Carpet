@@ -31,14 +31,6 @@ import static net.minecraft.world.explosion.Explosion.getExposure;
 public class ExplosionMixin {
 
     @Final @Shadow
-    private static final ExplosionBehavior field_25818 = new ExplosionBehavior();
-    @Final @Shadow
-    private boolean createFire;
-    @Final @Shadow
-    private Explosion.DestructionType destructionType;
-    @Final @Shadow
-    private Random random;
-    @Final @Shadow
     private World world;
     @Final @Shadow
     private double x;
@@ -51,14 +43,6 @@ public class ExplosionMixin {
     private Entity entity;
     @Final @Shadow
     private float power;
-    @Final @Shadow
-    private DamageSource damageSource;
-    @Final @Shadow
-    private ExplosionBehavior behavior;
-    @Final @Shadow
-    private List<BlockPos> affectedBlocks;
-    @Final @Shadow
-    private Map<PlayerEntity, Vec3d> affectedPlayers;
 
     @Inject(method = "collectBlocksAndDamageEntities", at = @At("HEAD"), cancellable = true)
     public void collectBlocksAndDamageEntities(CallbackInfo ci) {
@@ -76,12 +60,12 @@ public class ExplosionMixin {
             for (int x = 0; x < list.size(); ++x) {
                 Entity entity = list.get(x);
                 if (!entity.isImmuneToExplosion()) {
-                    double y = MathHelper.sqrt(entity.squaredDistanceTo(vec3d)) / q;
+                    double y = MathHelper.sqrt((float) entity.squaredDistanceTo(vec3d)) / q;
                     if (y <= 1.0D) {
                         double z = entity.getX() - this.x;
                         double aa = (entity instanceof TntEntity ? entity.getY() : entity.getEyeY()) - this.y;
                         double ab = entity.getZ() - this.z;
-                        double ac = MathHelper.sqrt(z * z + aa * aa + ab * ab);
+                        double ac = MathHelper.sqrt((float) (z * z + aa * aa + ab * ab));
                         if (ac != 0.0D) {
                             z /= ac;
                             aa /= ac;

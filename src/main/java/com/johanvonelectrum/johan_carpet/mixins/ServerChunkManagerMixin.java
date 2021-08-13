@@ -15,6 +15,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerChunkManager.class)
 public class ServerChunkManagerMixin {
+    //TODO: shouldTickEntity doesn't exists more in 1.17
+    /**
     @Inject(method = "shouldTickEntity", at = @At(value = "HEAD"), cancellable =  true)
     private void shouldTickEntity(Entity entity, CallbackInfoReturnable<Boolean> cir){
         if ((JohanSettings.keepProjectilesTicked.equals("all") && entity instanceof ProjectileEntity) ||
@@ -23,4 +25,5 @@ public class ServerChunkManagerMixin {
         )
             cir.setReturnValue(true);
     }
+    */
 }

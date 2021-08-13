@@ -4,7 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.johanvonelectrum.johan_carpet.JohanSettings;
-import net.minecraft.command.argument.ObjectiveArgumentType;
+import net.minecraft.command.argument.ScoreboardObjectiveArgumentType;
 import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.scoreboard.ScoreboardPlayerScore;
 import net.minecraft.server.command.ServerCommandSource;
@@ -19,10 +19,10 @@ public class CommandTotal {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = literal("total")
                 .requires((player) -> JohanSettings.commandTotal)
-                .then(argument("objective", ObjectiveArgumentType.objective())
-                        .executes(context -> execute(context.getSource(), ObjectiveArgumentType.getObjective(context, "objective")))
+                .then(argument("objective", ScoreboardObjectiveArgumentType.scoreboardObjective())
+                        .executes(context -> execute(context.getSource(), ScoreboardObjectiveArgumentType.getObjective(context, "objective")))
                         .then(argument("bots", BoolArgumentType.bool())
-                                .executes(context -> execute(context.getSource(), ObjectiveArgumentType.getObjective(context, "objective"), BoolArgumentType.getBool(context, "bots")))
+                                .executes(context -> execute(context.getSource(), ScoreboardObjectiveArgumentType.getObjective(context, "objective"), BoolArgumentType.getBool(context, "bots")))
                         )
                 );
 
@@ -43,8 +43,8 @@ public class CommandTotal {
 
     public static int getTotal(ServerCommandSource source, ScoreboardObjective objective, boolean bots) {
         int i = 0;
-        for (ScoreboardPlayerScore score: source.getMinecraftServer().getScoreboard().getAllPlayerScores(objective)) {
-            if (!bots && source.getMinecraftServer().getScoreboard().getPlayerTeam(score.getPlayerName()) == null)
+        for (ScoreboardPlayerScore score: source.getServer().getScoreboard().getAllPlayerScores(objective)) {
+            if (!bots && source.getServer().getScoreboard().getPlayerTeam(score.getPlayerName()) == null)
                 continue;
             i += score.getScore();
         }

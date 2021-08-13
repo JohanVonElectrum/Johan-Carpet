@@ -49,7 +49,7 @@ public abstract class BlockMixin implements ItemConvertible {
                 getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, entity, stack).forEach((itemStack) -> {
                     Item item = itemStack.getItem();
                     int itemAmount = itemStack.getCount();
-                    if (((PlayerEntity) entity).inventory.insertStack(itemStack)) {
+                    if (((PlayerEntity) entity).getInventory().insertStack(itemStack)) {
                         world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.PLAYERS, 0.2f, (CarpetServer.rand.nextFloat() - CarpetServer.rand.nextFloat()) * 1.4F + 2.0F);
                         ((PlayerEntity) entity).increaseStat(Stats.PICKED_UP.getOrCreateStat(item), itemAmount);
                     } else {

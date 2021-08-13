@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(AbstractFireBlock.class)
 public class AbstractFireBlockMixin {
 
-    @Redirect(method = "method_30032", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;canPlaceAt(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
+    @Redirect(method = "canPlaceAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;canPlaceAt(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
     private static boolean canPlaceAt(BlockState blockState, WorldView world, BlockPos pos){
         if(JohanSettings.oldFlintAndSteelBehavior)
             return true;

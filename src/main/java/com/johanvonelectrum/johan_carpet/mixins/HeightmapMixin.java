@@ -33,17 +33,14 @@ public abstract class HeightmapMixin {
     @Overwrite
     public static void populateHeightmaps(Chunk chunk, Set<Heightmap.Type> types) {
         int i = types.size();
-        ObjectList<Heightmap> objectList = new ObjectArrayList(i);
+        ObjectList<Heightmap> objectList = new ObjectArrayList<>(i);
         ObjectListIterator<Heightmap> objectListIterator = objectList.iterator();
         int j = chunk.getHighestNonEmptySectionYOffset() + 16;
         BlockPos.Mutable mutable = new BlockPos.Mutable();
 
         for(int k = 0; k < 16; ++k) {
             for(int l = 0; l < 16; ++l) {
-                Iterator var9 = types.iterator();
-
-                while(var9.hasNext()) {
-                    Heightmap.Type type = (Heightmap.Type)var9.next();
+                for (Heightmap.Type type : types) {
                     objectList.add(chunk.getHeightmap(type));
                 }
 
@@ -54,7 +51,7 @@ public abstract class HeightmapMixin {
                     BlockState blockState = chunk.getBlockState(mutable);
                     if (!blockState.isOf(Blocks.AIR)) {
                         while(objectListIterator.hasNext()) {
-                            Heightmap heightmap = (Heightmap)objectListIterator.next();
+                            Heightmap heightmap = objectListIterator.next();
                             if (heightmap.blockPredicate.test(blockState)) {
                                 heightmap.set(k, l, m + 1);
                                 objectListIterator.remove();

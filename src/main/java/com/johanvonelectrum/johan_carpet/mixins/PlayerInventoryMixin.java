@@ -9,9 +9,9 @@ import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtElement;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -45,15 +45,15 @@ public abstract class PlayerInventoryMixin {
 
     private ItemStack addStackToShulker(ItemStack shulker, ItemStack stack) {
         EnderChestInventory shulkerInventory = new EnderChestInventory();
-        CompoundTag shulkerTag = shulker.getTag();
+        NbtCompound shulkerTag = shulker.getNbt();
         if (shulkerTag != null && shulkerTag.contains("BlockEntityTag", 10)) {
-            CompoundTag blockEntityTag = shulkerTag.getCompound("BlockEntityTag");
+            NbtCompound blockEntityTag = shulkerTag.getCompound("BlockEntityTag");
             if (blockEntityTag.contains("Items", 9)) {
-                ListTag itemsTag = blockEntityTag.getList("Items", 10);
+                NbtList itemsTag = blockEntityTag.getList("Items", 10);
 
-                for (Tag itemTag : itemsTag) {
-                    CompoundTag itemCTag = (CompoundTag) itemTag;
-                    ItemStack insideStack = ItemStack.fromTag(itemCTag);
+                for (NbtElement itemTag : itemsTag) {
+                    NbtCompound itemCTag = (NbtCompound) itemTag;
+                    ItemStack insideStack = ItemStack.fromNbt(itemCTag);
                     int slot = itemCTag.getByte("Slot");
 
                     if (slot >= 0)
@@ -61,12 +61,12 @@ public abstract class PlayerInventoryMixin {
                 }
             }
         } else {
-            shulkerTag = new CompoundTag();
-            shulkerTag.put("BlockEntityTag", new CompoundTag());
+            shulkerTag = new NbtCompound();
+            shulkerTag.put("BlockEntityTag", new NbtCompound());
         }
         ItemStack remaining = shulkerInventory.addStack(stack);
-        ((CompoundTag)shulkerTag.get("BlockEntityTag")).put("Items", shulkerInventory.getTags());
-        shulker.setTag(shulkerTag);
+        ((NbtCompound)shulkerTag.get("BlockEntityTag")).put("Items", shulkerInventory.toNbtList());
+        shulker.setNbt(shulkerTag);
         return remaining;
     }
 

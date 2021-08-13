@@ -15,22 +15,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = TntEntity.class, priority = 800)
 public abstract class TntEntityMixin extends Entity implements TntEntityInterface {
 
-    @Shadow public abstract int getFuseTimer();
-
     private int mergedTNT = 1;
 
     public TntEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    @Inject(method = {"tick"}, at = @At("HEAD"))
+    @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo ci) {
         if (JohanSettings.ftlTNT) {
+            TntEntity tnt = (TntEntity) (Object) this;
             for (Entity entity : this.world.getOtherEntities(this, this.getBoundingBox())) {
                 if (entity instanceof TntEntity)
-                    if (entity.getVelocity().equals(this.getVelocity()) && entity.getPos().equals(this.getPos()) && ((TntEntity) entity).getFuseTimer() == getFuseTimer()) {
+                    if (entity.getVelocity().equals(this.getVelocity()) && entity.getPos().equals(this.getPos()) && ((TntEntity) entity).getFuse() == tnt.getFuse()) {
                         mergedTNT += ((TntEntityInterface) entity).getMergedTNT();
-                        entity.remove();
+                        entity.remove(RemovalReason.DISCARDED);
                     }
             }
         }

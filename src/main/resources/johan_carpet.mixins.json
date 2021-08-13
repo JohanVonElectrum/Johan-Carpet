@@ -1,7 +1,7 @@
 {
     "required": true,
     "package": "com.johanvonelectrum.johan_carpet.mixins",
-    "compatibilityLevel": "JAVA_8",
+    "compatibilityLevel": "JAVA_16",
     "mixins": [
         "AbstractBlockMixin",
         "AbstractFireBlockMixin",
@@ -10,7 +10,6 @@
         "BucketItemMixin",
         "EnchantmentHelperMixin",
         "EndGatewayBlockEntityMixin",
-        "EndGatewayMixin",
         "EndSpikeFeatureMixin",
         "ExplosionMixin",
         "FightManagerMixin",

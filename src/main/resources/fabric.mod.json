@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Johan Carpet Addon",
-  "description": "A carpet extension made by JohanVonElectrum in 1.16.4",
+  "description": "A carpet extension made by JohanVonElectrum in 1.17.1",
   "authors": [
     "JohanVonElectrum"
   ],
@@ -29,13 +29,18 @@
   "accessWidener": "johan_carpet.accesswidener",
 
   "depends": {
-    "minecraft": "1.16.x",
-    "fabricloader": ">=0.10.0",
+    "minecraft": "1.17.x",
+    "fabricloader": ">=0.11.3",
     "carpet": "*"
   },
   "custom": {
-    "modmenu:clientsideOnly": true,
     "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/qEnjqeG",
+        "Twitter": "https://twitter.com/Johan_V_E",
+        "Twitch": "https://www.twitch.tv/johanvonelectrum",
+        "YouTube": "https://www.youtube.com/channel/UC7VBv4WwBwNv60IazZVm0HQ"
+      },
       "parent": "carpet"
     }
   }

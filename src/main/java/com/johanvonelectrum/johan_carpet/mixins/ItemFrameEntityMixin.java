@@ -100,7 +100,7 @@ public class ItemFrameEntityMixin extends AbstractDecorationEntity {
             } else {
                 if (entity instanceof PlayerEntity) {
                     PlayerEntity playerEntity = (PlayerEntity) entity;
-                    if (playerEntity.abilities.creativeMode) {
+                    if (playerEntity.getAbilities().creativeMode) {
                         itemFrame.setHeldItemStack(ItemStack.EMPTY);
                         return;
                     }
