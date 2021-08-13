@@ -35,8 +35,6 @@
   },
   "custom": {
     "modmenu:clientsideOnly": true,
-    "modmenu": {
-      "parent": "carpet"
-    }
+    "modmenu:parent": "carpet"
   }
 }
