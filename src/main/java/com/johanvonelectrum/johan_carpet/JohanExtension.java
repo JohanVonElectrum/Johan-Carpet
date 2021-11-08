@@ -14,7 +14,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.time.Instant;
-import java.util.Optional;
 
 import static com.johanvonelectrum.johan_carpet.Reference.MOD_NAME;
 
@@ -53,7 +52,10 @@ public class JohanExtension implements CarpetExtension {
         if (lastUpdateResult || lastUpdateCheck.plusSeconds(3600).isAfter(now))
             return lastUpdateResult;
         lastUpdateCheck = now;
-        lastUpdateResult = !Reference.MOD_VERSION.toString().replaceAll("([a-zA-Z0-9-]+)-([0-9.]+)-", "").equals(HttpHelper.getLatestRelease());
+        lastUpdateResult = !Reference.MOD_VERSION.toString().replaceAll("[0-9.]+-", "").equals(HttpHelper.getLatestRelease());
+        System.out.println("MOD_VERSION: " + Reference.MOD_VERSION);
+        System.out.println("RegExp: " + Reference.MOD_VERSION.toString().replaceAll("[0-9.]+-", ""));
+        System.out.println("Last: " + HttpHelper.getLatestRelease());
         return lastUpdateResult;
     }
 
