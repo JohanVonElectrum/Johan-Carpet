@@ -30,6 +30,7 @@
         "ShulkerBoxBlockEntityMixin",
         "ShulkerBoxSlotMixin",
         "ShulkerEntityMixin",
+        "SpongeBlockMixin",
         "TntEntityMixin"
     ],
     "client": [
