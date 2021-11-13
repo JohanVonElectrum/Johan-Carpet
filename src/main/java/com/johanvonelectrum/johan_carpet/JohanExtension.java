@@ -53,9 +53,6 @@ public class JohanExtension implements CarpetExtension {
             return lastUpdateResult;
         lastUpdateCheck = now;
         lastUpdateResult = !Reference.MOD_VERSION.toString().replaceAll("[0-9.]+-", "").equals(HttpHelper.getLatestRelease());
-        System.out.println("MOD_VERSION: " + Reference.MOD_VERSION);
-        System.out.println("RegExp: " + Reference.MOD_VERSION.toString().replaceAll("[0-9.]+-", ""));
-        System.out.println("Last: " + HttpHelper.getLatestRelease());
         return lastUpdateResult;
     }
 
