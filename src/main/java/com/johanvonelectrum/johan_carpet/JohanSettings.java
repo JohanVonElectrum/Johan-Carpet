@@ -307,6 +307,12 @@ public class JohanSettings {
     }
     /* End itemFrameDelay stuff */
 
+    @Rule(
+            desc = "Blocks of stone material can be broken faster with pickaxes.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean mineStones = false;
+
     /* ===== End PlayerTweaks Rules =====*/
 
 }
