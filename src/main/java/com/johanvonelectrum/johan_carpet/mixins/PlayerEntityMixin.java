@@ -36,8 +36,13 @@ public class PlayerEntityMixin {
 
     @Inject(method = "attack", at = @At("HEAD"))
     private void attack(Entity target, CallbackInfo ci) {
-        if (JohanSettings.creativeKill && player.isCreative() && target.isAttackable() && !target.handleAttack(player))
-            target.kill();
+        if (JohanSettings.creativeKill && player.isCreative() && target.isAttackable() && !target.handleAttack(player)) {
+            if (target instanceof PlayerEntity other) {
+                if (!other.isCreative())
+                    target.kill();
+            } else
+                target.kill();
+        }
     }
 
 }
