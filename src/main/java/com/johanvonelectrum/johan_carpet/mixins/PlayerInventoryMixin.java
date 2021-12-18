@@ -24,6 +24,7 @@ public abstract class PlayerInventoryMixin {
     PlayerInventory inventory = (PlayerInventory) (Object) this;
 
     @Shadow protected abstract int addStack(int slot, ItemStack stack);
+    @Shadow protected abstract boolean canStackAddMore(ItemStack existingStack, ItemStack stack);
 
     /**
      * @author JohanVonElectrum
@@ -35,7 +36,7 @@ public abstract class PlayerInventoryMixin {
             stack.setCount(this.addStack(first, stack));
         for(int i = 0; i < inventory.main.size() && !stack.isEmpty(); ++i) {
             ItemStack itemStack = inventory.main.get(i);
-            if (itemStack.isEmpty() || itemStack.getItem().equals(stack.getItem()))
+            if (itemStack.isEmpty() || this.canStackAddMore(itemStack, stack))
                 stack.setCount(this.addStack(i, stack));
             else if (!(Block.getBlockFromItem(stack.getItem()) instanceof ShulkerBoxBlock) && JohanSettings.shulkerInsert && Block.getBlockFromItem(itemStack.getItem()) instanceof ShulkerBoxBlock)
                 stack = addStackToShulker(itemStack, stack);
