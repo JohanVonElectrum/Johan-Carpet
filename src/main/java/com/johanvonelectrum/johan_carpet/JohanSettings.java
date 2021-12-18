@@ -333,6 +333,12 @@ public class JohanSettings {
     )
     public static boolean mineStones = false;
 
+    @Rule(
+            desc = "Bring back zero tick plant farms.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean zeroTickFarms = false;
+
     /* ===== End PlayerTweaks Rules =====*/
 
 }

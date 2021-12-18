@@ -29,11 +29,16 @@
         "ServerChunkManagerMixin",
         "ServerScoreboardMixin",
         "ServerWorldMixin",
-        "ShulkerBoxBlockEntityMixin",
-        "ShulkerBoxSlotMixin",
+        "shulkerInception.ShulkerBoxBlockEntityMixin",
+        "shulkerInception.ShulkerBoxSlotMixin",
         "ShulkerEntityMixin",
         "SpongeBlockMixin",
-        "TntEntityMixin"
+        "TntEntityMixin",
+        "zeroTickFarms.AbstractPlantPartBlockMixin",
+        "zeroTickFarms.BambooBlockMixin",
+        "zeroTickFarms.CactusBlockMixin",
+        "zeroTickFarms.ChorusFlowerBlockMixin",
+        "zeroTickFarms.SugarCaneBlockMixin"
     ],
     "client": [
         "MinecraftClientMixin"
