@@ -162,6 +162,27 @@ public class JohanSettings {
     )
     public static boolean seaLevelFishes = false;
 
+    /* Begin ancientBartering stuff */
+    @Rule(
+            desc = "Gives Piglins a specified chance to drop ancient debris.",
+            options = {"0", "50", "100"},
+            category = { johanSettingsCategory, SURVIVAL },
+            strict = false,
+            validate = { AncientBarteringValidator.class }
+    )
+    public static int ancientBartering = 0;
+
+    private static class AncientBarteringValidator extends Validator<Integer> {
+        @Override
+        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
+            return integer >= 0 && integer <= 100 ? integer : null;
+        }
+
+        @Override
+        public String description() { return "You must choose a value from 0 to 100"; }
+    }
+    /* End ancientBartering stuff */
+
     /* Begin SpawnMaxY stuff */
     @Rule(
             desc = "Set the max value possible for heightmap. USE AT YOUR OWN RISK!",
@@ -300,6 +321,12 @@ public class JohanSettings {
         }
     }
     /* End itemFrameDelay stuff */
+
+    @Rule(
+            desc = "Blocks of stone material can be broken faster with netherite pickaxe.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean mineStones = false;
 
     /* ===== End PlayerTweaks Rules =====*/
 
