@@ -340,6 +340,12 @@ public class JohanSettings {
     )
     public static boolean zeroTickFarms = false;
 
+    @Rule(
+            desc = "ShulkerBoxes drop their contents when burned.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean shulkerFireDrops = false;
+
     /* ===== End PlayerTweaks Rules =====*/
 
 }
