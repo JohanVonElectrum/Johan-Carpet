@@ -287,6 +287,12 @@ public class JohanSettings {
     public static boolean bucketSponge = false;
 
     @Rule(
+            desc = "Sponges remove lava too.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean lavaSponge = false;
+
+    @Rule(
             desc = "Sneak to repair items with your stored xp.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
