@@ -156,12 +156,6 @@ public class JohanSettings {
     )
     public static boolean forceShulkerTeleport = false;
 
-    @Rule(
-            desc = "Fishes only can spawn between y:45 and y:63, both excluded.",
-            category = { johanSettingsCategory, SURVIVAL, BUGFIX }
-    )
-    public static boolean seaLevelFishes = false;
-
     /* Begin ancientBartering stuff */
     @Rule(
             desc = "Gives Piglins a specified chance to drop ancient debris.",
