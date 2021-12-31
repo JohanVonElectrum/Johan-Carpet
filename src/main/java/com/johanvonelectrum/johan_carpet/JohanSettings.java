@@ -333,6 +333,12 @@ public class JohanSettings {
     )
     public static boolean zeroTickFarms = false;
 
+    @Rule(
+            desc = "Ignores magma block damage to players.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean ignorePlayerDamageFromMagmaBlock = false;
+
     /* ===== End PlayerTweaks Rules =====*/
 
 }
