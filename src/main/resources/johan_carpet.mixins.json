@@ -38,7 +38,8 @@
         "zeroTickFarms.BambooBlockMixin",
         "zeroTickFarms.CactusBlockMixin",
         "zeroTickFarms.ChorusFlowerBlockMixin",
-        "zeroTickFarms.SugarCaneBlockMixin"
+        "zeroTickFarms.SugarCaneBlockMixin",
+        "MagmaBlockMixin"
     ],
     "client": [
         "MinecraftClientMixin"
