@@ -22,18 +22,11 @@ public class MagmaBlockMixin extends Block {
         super(settings);
     }
 
-    @Inject(method = "onSteppedOn", at = @At("HEAD"), cancellable = true)
-    public void avoidPlayerDamage(World world, BlockPos pos, BlockState state, Entity entity, CallbackInfo ci) {
-        ci.cancel();
-        boolean shouldDamagePlayer = !entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity);
-        if (JohanSettings.ignorePlayerDamageFromMagmaBlock) {
-            shouldDamagePlayer = shouldDamagePlayer && !(entity instanceof PlayerEntity);
+    @Inject(method = "onSteppedOn", at = @At("INVOKE"), cancellable = true)
+    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity, CallbackInfo ci) {
+        if ((JohanSettings.magmaBlockDamage.equals("only-mobs") && entity instanceof PlayerEntity) || JohanSettings.magmaBlockDamage.equals("never")) {
+            ci.cancel();
+            super.onSteppedOn(world, pos, state, entity);
         }
-
-        if (shouldDamagePlayer) {
-            entity.damage(DamageSource.HOT_FLOOR, 1.0F);
-        }
-
-        super.onSteppedOn(world, pos, state, entity);
     }
 }
