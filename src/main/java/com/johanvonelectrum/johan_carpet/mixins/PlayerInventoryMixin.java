@@ -65,7 +65,6 @@ public abstract class PlayerInventoryMixin {
 
     private boolean addStackToShulker(ItemStack shulker, ItemStack stack, int emptySlot) {
         ItemStack target = shulker;
-        System.out.println(target.getCount() + " : " + emptySlot);
 
         if (shulker.getCount() > 1) {
             if (emptySlot == -1)
@@ -78,8 +77,6 @@ public abstract class PlayerInventoryMixin {
                 target = inventory.main.get(emptySlot);
             }
         }
-
-        System.out.println(target.getCount() + " : " + emptySlot);
 
         EnderChestInventory shulkerInventory = new EnderChestInventory();
         NbtCompound shulkerTag = target.getNbt();
