@@ -31,7 +31,7 @@ public class CommandSignal {
         dispatcher.register(literalArgumentBuilder);
     }
 
-    private static int execute(ServerCommandSource source, int signal) throws CommandSyntaxException {
+    private static int execute(ServerCommandSource source, int value) throws CommandSyntaxException {
         if (!JohanSettings.commandSignal || source == null)
             return 0;
 
@@ -39,7 +39,7 @@ public class CommandSignal {
         NbtCompound tags = new NbtCompound();
         NbtList itemsTag = new NbtList();
 
-        for (int slot = 0, count = fromSignal((byte) 27, (byte) 1, signal); count > 0; slot++, count -= 64) {
+        for (int slot = 0, count = (int) Math.ceil(27 * (value - 1) / 14D); count > 0; slot++, count -= 64) {
             NbtCompound slotTag = new NbtCompound();
             slotTag.putByte("Slot", (byte) slot);
             slotTag.putString("id", Registry.ITEM.getId(Items.WHITE_SHULKER_BOX).toString());
@@ -51,7 +51,7 @@ public class CommandSignal {
         tag.put("Items", itemsTag);
         tags.put("BlockEntityTag", tag);
 
-        BaseText text = new LiteralText("Signal: " + signal);
+        BaseText text = new LiteralText("Signal: " + value);
         text.setStyle(text.getStyle().withColor(Formatting.RED));
         item.setNbt(tags);
         item.setCustomName(text);
@@ -60,16 +60,6 @@ public class CommandSignal {
         System.out.println(item.getNbt());
 
         return 1;
-    }
-
-    private static int signalOf(byte slots, byte stackSize, int items) {
-        return 14 * items / (slots * stackSize) + (items > 0 ? 1 : 0);
-    }
-
-    private static int fromSignal(byte slots, byte stackSize, int signal) {
-        int items = (int) Math.ceil((signal - (signal > 0 ? 1 : 0)) * (27 / 14D));
-        for (;signalOf(slots, stackSize, items) < signal;items++);
-        return items;
     }
 
 }

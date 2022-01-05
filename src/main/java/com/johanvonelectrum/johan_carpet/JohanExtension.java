@@ -39,7 +39,6 @@ public class JohanExtension implements CarpetExtension {
         CommandComputation.register(dispatcher);
         CommandBatch.register(dispatcher);
         CommandItem.register(dispatcher);
-        CommandCs.register(dispatcher);
     }
 
     private static Instant lastUpdateCheck = Instant.MIN;

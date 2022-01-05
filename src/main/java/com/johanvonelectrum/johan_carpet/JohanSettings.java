@@ -1,10 +1,8 @@
 package com.johanvonelectrum.johan_carpet;
 
-import carpet.settings.Condition;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
-import carpet.utils.Messenger;
 import net.minecraft.server.command.ServerCommandSource;
 
 import java.util.Arrays;
@@ -61,9 +59,9 @@ public class JohanSettings {
 
         @Override
         public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2) {
-            if (Arrays.asList(keepProjectilesTickedOptions).contains(s))
-                return s;
-            return null;
+            if ((serverCommandSource == null || parsedRule.get().equals(s)) && Arrays.asList(keepProjectilesTickedOptions).contains(s))
+                keepProjectilesTicked = s;
+            return s;
         }
     }
     /* End keepProjectilesTicked stuff */
@@ -131,12 +129,6 @@ public class JohanSettings {
             category = { johanSettingsCategory, COMMAND }
     )
     public static boolean commandItem = false;
-
-    @Rule(
-            desc = "Enables /cs command to get into spectator mode and return to previous location when you disable it.",
-            category = { johanSettingsCategory, COMMAND }
-    )
-    public static boolean commandCs = false;
 
     /* ===== End Commands Rules ===== */
 
@@ -232,9 +224,9 @@ public class JohanSettings {
 
         @Override
         public String validate(ServerCommandSource serverCommandSource, ParsedRule<String> parsedRule, String s, String s2) {
-            if (Arrays.asList(carefulBreakOptions).contains(s))
-                return s;
-            return null;
+            if ((serverCommandSource == null || parsedRule.get().equals(s)) && Arrays.asList(carefulBreakOptions).contains(s))
+                carefulBreak = s;
+            return s;
         }
     }
     /* End CarefulBreak stuff */
@@ -340,39 +332,6 @@ public class JohanSettings {
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static boolean zeroTickFarms = false;
-
-
-    /* Begin magmaBlockDamage stuff */
-    private static final String[] magmaBlockDamageOptions = new String[] { "always", "only-mobs", "never" };
-    @Rule(
-            desc = ".",
-            category = { johanSettingsCategory, SURVIVAL, CHEAT },
-            options = { "always", "only-mobs", "never" },
-            validate = { magmaBlockDamageValidator.class }
-    )
-    public static String magmaBlockDamage = "always";
-
-    private static class magmaBlockDamageValidator extends Validator<String> {
-
-        @Override
-        public String validate(ServerCommandSource source, ParsedRule<String> currentRule, String newValue, String string) {
-            if (Arrays.asList(magmaBlockDamageOptions).contains(newValue))
-                return newValue;
-            return null;
-        }
-
-        @Override
-        public void notifyFailure(ServerCommandSource source, ParsedRule<String> currentRule, String providedValue) {
-            Messenger.m(source, "r Wrong value for " + currentRule.name + ": " + providedValue + ". Chose one from \"always\", \"only-mobs\", \"never\"");
-        }
-    }
-    /* End magmaBlockDamage stuff */
-
-    @Rule(
-            desc = "All items have a custom stack size, set it to 0 to disable.",
-            category = { johanSettingsCategory, SURVIVAL, CHEAT }
-    )
-    public static int customStackSize = 0;
 
     /* ===== End PlayerTweaks Rules =====*/
 
