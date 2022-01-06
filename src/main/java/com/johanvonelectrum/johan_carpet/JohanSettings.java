@@ -368,15 +368,12 @@ public class JohanSettings {
     }
     /* End magmaBlockDamage stuff */
 
-<<<<<<< Updated upstream
-=======
     @Rule(
             desc = "All items have a custom stack size, set it to 0 to disable.",
             category = { johanSettingsCategory, SURVIVAL, CHEAT }
     )
     public static int customStackSize = 0;
 
->>>>>>> Stashed changes
     /* ===== End PlayerTweaks Rules =====*/
 
 }
