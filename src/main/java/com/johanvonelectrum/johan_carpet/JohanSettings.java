@@ -374,6 +374,11 @@ public class JohanSettings {
     )
     public static int customStackSize = 0;
 
+    @Rule(
+            desc = "If drowned have a trident, it will have a chance of 100% of droping it.",
+            category = { johanSettingsCategory, SURVIVAL, CHEAT }
+    )
+    public static boolean drownedDropTrident = false;
     /* ===== End PlayerTweaks Rules =====*/
 
 }

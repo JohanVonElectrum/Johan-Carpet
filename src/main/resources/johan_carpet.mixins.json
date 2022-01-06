@@ -21,6 +21,7 @@
     "MerchantEntityMixin",
     "MinecraftServerMixin",
     "MiningToolItemMixin",
+    "MobEntityMixin",
     "PiglinBrainMixin",
     "PlayerEntityMixin",
     "PlayerInventoryMixin",
