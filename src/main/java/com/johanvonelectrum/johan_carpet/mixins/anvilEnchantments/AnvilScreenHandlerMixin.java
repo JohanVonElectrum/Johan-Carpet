@@ -2,21 +2,11 @@ package com.johanvonelectrum.johan_carpet.mixins.anvilEnchantments;
 
 import com.johanvonelectrum.johan_carpet.JohanSettings;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.screen.*;
-import net.minecraft.text.LiteralText;
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.Iterator;
-import java.util.Map;
 
 @Mixin(value = AnvilScreenHandler.class)
 public abstract class AnvilScreenHandlerMixin {
