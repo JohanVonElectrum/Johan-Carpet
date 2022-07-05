@@ -13,7 +13,6 @@
 @rem See the License for the specific language governing permissions and
 @rem limitations under the License.
 @rem
-set JAVA_HOME=C:\Program Files\Eclipse Foundation\jdk-16.0.2.7-hotspot\
 
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
